@@ -4,6 +4,11 @@
     font-family: 'Arapey', serif;
 }
 
+body {
+    background-image: url('/media/music-background.jpg');
+    background-size: cover;
+}
+
 .title {
     font-family: 'Eczar', serif;
     color: gold;
