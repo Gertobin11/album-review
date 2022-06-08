@@ -9,3 +9,11 @@ def index(request):
     }
     template = 'index.html'
     return render(request, template, context)
+
+def search_results(request):
+    if request.method == 'POST':
+        return
+    else:
+        context = {}
+        template = 'search_results.html'
+        return render(request, template, context)
