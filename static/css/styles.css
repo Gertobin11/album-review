@@ -73,3 +73,42 @@ input {
     align-items: center;
 }
 
+/* Style for the review list */
+
+.container-dark {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background-color: hsl(170, 5%, 35%, 0.3);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    padding: 2rem 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-heading {
+    font-family: 'Eczar', serif;
+    color: gold;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+}

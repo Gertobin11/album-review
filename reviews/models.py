@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib import auth
 from django.core.validators import MaxValueValidator, MinValueValidator
+import datetime
+
+
+YEAR_CHOICES =  []
+
+for i in range(1900, (datetime.datetime.now().year + 1)):
+    YEAR_CHOICES.append((i, i))
 
 
 class RecordCompany(models.Model):
@@ -33,7 +40,7 @@ class Genre(models.Model):
 class Album(models.Model):
     """ The Album that will be reviewed """
     title = models.CharField(max_length=70, help_text='The title of the album')
-    year_of_release = models.DateField(verbose_name='The year the album was released')
+    year_of_release = models.PositiveIntegerField(choices=YEAR_CHOICES ,verbose_name='The year the album was released')
     record_company = models.ForeignKey(RecordCompany, on_delete=models.CASCADE)
     album_cover = models.ImageField(upload_to='media/', help_text='The image from the album cover')
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
