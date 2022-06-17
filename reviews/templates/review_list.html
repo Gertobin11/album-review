@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <main class="main-wrapper">
     <h1 class="page-heading">Reviews</h1>
@@ -17,7 +18,7 @@
             <div class="card-footer">
                 <small>Rated:   </small>
                 {% for i in review.rating|get_range %}
-                    <span><i class="fas fa-record-vinyl"></i></span>
+                    <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
                 {% endfor %}
                 <div class="center-container top-margin">
                     <a href="#" class="btn card-btn">Read Here</a>
@@ -27,4 +28,8 @@
         {% endfor %}
     </div>
 </main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/review_list.js' %}"></script>
 {% endblock %}

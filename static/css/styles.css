@@ -113,13 +113,13 @@ input {
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #000000;
-    padding: 0 .5rem 1rem .5rem;
     overflow: hidden;
-    line-height: 1.5rem
+    line-height: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .card-image {
-    width: 100;
+    width: 100%;
 }
 
 .main-wrapper {
@@ -146,4 +146,32 @@ input {
 
 .card-footer {
     padding: .5rem 0;
+}
+
+.fa-record-vinyl:before {
+    content: "\f8d9";
+    color: gold;
+    box-shadow: 1px 1px 2px 1px black;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.vinyl {
+    opacity: 0;
+}
+
+.fade-in {
+    animation: 1s forwards fade-in;
+}
+
+/* Animation */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
