@@ -53,6 +53,10 @@ input {
     margin-top: .7rem;
 }
 
+.red-text {
+    color: #EE4B2B !important;
+}
+
 /* Nav Styles */
 
 .title span {
@@ -109,16 +113,21 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 350px;
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #000000;
     overflow: hidden;
     line-height: 1.5rem;
     padding-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .card-image {
+    width: 100%;
+}
+
+.card-image img {
     width: 100%;
 }
 
@@ -145,7 +154,14 @@ input {
 }
 
 .card-footer {
-    padding: .5rem 0;
+    padding: .5rem 0 .5rem 1rem;
+    width: 100%;
+}
+
+.card-body {
+    width: 100%;
+    text-align: start;
+    padding: 1rem;
 }
 
 .fa-record-vinyl:before {
@@ -157,12 +173,26 @@ input {
     background-color: black;
 }
 
+.fa-compact-disc:before {
+    content: "\f51f";
+    color: #EE4B2B;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px 1px black;
+}
+
 .vinyl {
     opacity: 0;
 }
 
 .fade-in {
     animation: 1s forwards fade-in;
+}
+
+.rated {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
 }
 
 /* Animation */

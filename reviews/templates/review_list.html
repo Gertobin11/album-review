@@ -10,15 +10,19 @@
                 <img src="{{MEDIA_URL }}{{ review.album.album_cover }}" alt="Album cover of {{ review.album }}">
             </div>
             <div class="card-body top-margin">
-                <p>{{ review.album }}</p>
+                <p>{{ review.album|title }}</p>
                 <p><small>By: </small>{{ review.album.artist }}</p>
                 <p><small>Reviewed by: </small>{{ review.creator }}</p>
                 <p><small>On </small> {{ review.date_created_on }}</p>
             </div>
             <div class="card-footer">
-                <small>Rated:   </small>
+                <p class="rated">Rated:</p>
                 {% for i in review.rating|get_range %}
-                    <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
+                    {% if review.rating < 6 %}
+                        <span class="vinyl"><i class="fas fa-compact-disc"></i></span>
+                    {% else %}
+                        <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
+                    {% endif %}
                 {% endfor %}
                 <div class="center-container top-margin">
                     <a href="#" class="btn card-btn">Read Here</a>

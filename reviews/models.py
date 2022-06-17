@@ -42,7 +42,7 @@ class Album(models.Model):
     title = models.CharField(max_length=70, help_text='The title of the album')
     year_of_release = models.PositiveIntegerField(choices=YEAR_CHOICES ,verbose_name='The year the album was released')
     record_company = models.ForeignKey(RecordCompany, on_delete=models.CASCADE)
-    album_cover = models.ImageField(upload_to='media/', help_text='The image from the album cover')
+    album_cover = models.ImageField(upload_to='album_covers/', help_text='The image from the album cover')
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
 
