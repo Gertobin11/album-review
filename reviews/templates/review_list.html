@@ -3,15 +3,28 @@
 <main class="main-wrapper">
     <h1 class="page-heading">Reviews</h1>
     <div class="container-dark">
+        {% for review in reviews %}
         <div class="card">
-            <div class="card-image"></div>
-            <div class="card-body">
-                {% for review in reviews %}
-                    {{ review.album.artist }}
-                {% endfor %}
+            <div class="card-image">
+                <img src="{{MEDIA_URL }}{{ review.album.album_cover }}" alt="Album cover of {{ review.album }}">
             </div>
-            <div class="card-footer"></div>
+            <div class="card-body top-margin">
+                <p>{{ review.album }}</p>
+                <p><small>By: </small>{{ review.album.artist }}</p>
+                <p><small>Reviewed by: </small>{{ review.creator }}</p>
+                <p><small>On </small> {{ review.date_created_on }}</p>
+            </div>
+            <div class="card-footer">
+                <small>Rated:   </small>
+                {% for i in review.rating|get_range %}
+                    <span><i class="fas fa-record-vinyl"></i></span>
+                {% endfor %}
+                <div class="center-container top-margin">
+                    <a href="#" class="btn card-btn">Read Here</a>
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock %}

@@ -1,3 +1,5 @@
+/* General Styles */
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -14,6 +16,44 @@ body {
     color: gold;
     font-size: 2.5rem;
 }
+
+.btn {
+    border-radius: 10px;
+    color: black;
+    background-color: gold;
+    height: 1.7rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.btn:hover {
+    color: #EE4B2B;
+    background-color: black;
+}
+
+input {
+    height: 1.7rem;
+    border-radius: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.top-margin {
+    margin-top: .7rem;
+}
+
+/* Nav Styles */
 
 .title span {
     color: #EE4B2B;
@@ -45,29 +85,6 @@ body {
     text-decoration: underline;
 }
 
-.btn {
-    border-radius: 10px;
-    color: black;
-    background-color: gold;
-    height: 1.7rem;
-    cursor: pointer;
-    font-size: 1.3rem;
-}
-
-.btn:hover {
-    color: #EE4B2B;
-    background-color: black;
-}
-
-input {
-    height: 1.7rem;
-    border-radius: 10px;
-}
-
-.hide {
-    display: none;
-}
-
 .search-form {
     display: flex;
     align-items: center;
@@ -96,6 +113,13 @@ input {
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #000000;
+    padding: 0 .5rem 1rem .5rem;
+    overflow: hidden;
+    line-height: 1.5rem
+}
+
+.card-image {
+    width: 100;
 }
 
 .main-wrapper {
@@ -111,4 +135,15 @@ input {
     color: gold;
     font-size: 2.5rem;
     margin: 2rem 0;
+}
+
+.card-btn {
+    padding: 0.4rem;
+    border: 2px solid #EE4B2B;
+    text-decoration: none;
+    height: auto;
+}
+
+.card-footer {
+    padding: .5rem 0;
 }

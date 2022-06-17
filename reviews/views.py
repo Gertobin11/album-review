@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.template.defaulttags import register
 from reviews.models import Review
 
 def index(request):
@@ -27,3 +28,8 @@ def review_list(request):
     }
     template = 'review_list.html'
     return render(request, template, context)
+
+@register.filter
+def get_range(value):
+    """ Returns a range from an integer in jinja 2 templating """
+    return range(value)
