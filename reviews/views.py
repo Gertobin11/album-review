@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.template.defaulttags import register
-from reviews.models import Review
+from reviews.models import Review, Album
+from .utils import average_rating
 
 def index(request):
     """ Function to render the landing page view """
@@ -28,6 +29,36 @@ def review_list(request):
     }
     template = 'review_list.html'
     return render(request, template, context)
+
+def album_list(request):
+    """ Function to display a list of books with the average rating of those albums"""
+    albums = Album.objects.all()
+    album_list = []
+    for album in albums:
+        reviews = album.review_set.all()
+        if reviews:
+            album_rating = average_rating([review.rating for review in reviews])
+            number_of_reviews = len(reviews)
+        else:
+            album_rating = 0
+            number_of_reviews = 0
+        album_list.append({
+            'album': album,
+            'album_rating': album_rating,
+            'number_of_reviews': number_of_reviews
+        })
+    context = {
+        'album_list': album_list
+        }
+    template = 'album_list.html'
+    return render(request, template, context)
+
+def album_view(request, id):
+    """ Display individual reviews"""
+    album = get_list_or_404(Album, pk=id)
+    reviews = album.review_set.all()
+
+
 
 @register.filter
 def get_range(value):

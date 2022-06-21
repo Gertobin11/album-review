@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-wrapper">
+    <h1 class="page-heading">Albums</h1>
+    <div class="container-dark">
+        {% for album in album_list %}
+        <div class="card">
+            <div class="card-image">
+                <img src="{{MEDIA_URL }}{{ album.album.album_cover }}" alt="Album cover of {{ album }}">
+            </div>
+            <div class="card-body top-margin">
+                <p>{{ album.album|title }}</p>
+                <p><small>By: </small>{{ album.album.artist }}</p>
+                <p><small>Year of Release:  </small> {{ album.album.year_of_release }}</p>
+                <p><small>Genre: </small>{{ album.album.genre }}</p>
+                <p><small>Label: </small>{{ album.album.record_company }}</p>
+            </div>
+            <div class="card-footer">
+                <p class="rated">Average Rating:</p>
+                {% for i in album.album_rating|get_range %}
+                    {% if album.album_rating < 6 %}
+                        <span class="vinyl"><i class="fas fa-compact-disc"></i></span>
+                    {% else %}
+                        <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
+                    {% endif %}
+                {% endfor %}
+                <div class="center-container top-margin">
+                    <a href="#" class="btn card-btn">Reviews</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/review_list.js' %}"></script>
+{% endblock %}
