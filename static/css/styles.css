@@ -195,6 +195,26 @@ input {
     font-size: 1.5rem;
 }
 
+/* Style for Album view */
+
+.album-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.album-body {
+    color: whitesmoke;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
 /* Animation */
 
 @keyframes fade-in {

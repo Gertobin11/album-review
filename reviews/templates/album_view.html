@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-wrapper">
+    <h1 class="title top-margin">Album Details</h1>
+    <div class="album-wrapper">
+        <div class="album-image">
+            <img src="{{MEDIA_URL }}{{ album.album_cover }}" alt="Album cover of {{ album }}">
+        </div>
+        <div class="album-body">
+            <p class="title">{{ album|title }}</p>
+            <p><small>By: </small>{{ album.artist }}</p>
+            <p><small>Year of Release:  </small> {{ album.year_of_release }}</p>
+            <p><small>Genre: </small>{{ album.genre }}</p>
+            <p><small>Label: </small>{{ album.record_company }}</p>
+        </div>
+    </div>
+    <div class="container-dark">
+        <h2 class="title top-margin">Reviews</h2>
+        {% for review in reviews %}
+        <div class="card">
+            <div class="card-body top-margin">
+                <p>{{ review.title|title }}</p>
+                <p><small>Reviewed by: </small>{{ review.creator }}</p>
+                <p><small>On </small> {{ review.date_created_on }}</p>
+            </div>
+            <div class="card-footer">
+                <p class="rated">Rated:</p>
+                {% for i in review.rating|get_range %}
+                    {% if review.rating < 6 %}
+                        <span class="vinyl"><i class="fas fa-compact-disc"></i></span>
+                    {% else %}
+                        <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
+                    {% endif %}
+                {% endfor %}
+                <div class="center-container top-margin">
+                    <a href="#" class="btn card-btn">Read Here</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/review_list.js' %}"></script>
+{% endblock %}

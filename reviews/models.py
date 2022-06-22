@@ -52,6 +52,7 @@ class Album(models.Model):
 
 class Review(models.Model):
     """ The Users Album Review """
+    title = models.CharField(max_length=200, help_text='Title of the review')
     content = models.TextField(help_text='The review text')
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], help_text='The rating the user has given the album')
     date_created_on = models.DateTimeField(auto_now_add=True, help_text='The date and time the review was created')

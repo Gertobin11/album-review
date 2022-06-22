@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.template.defaulttags import register
 from reviews.models import Review, Album
@@ -55,8 +56,14 @@ def album_list(request):
 
 def album_view(request, id):
     """ Display individual reviews"""
-    album = get_list_or_404(Album, pk=id)
+    album = get_object_or_404(Album, pk=id)
     reviews = album.review_set.all()
+    context = {
+        'album': album,
+        'reviews': reviews
+    }
+    template = 'album_view.html'
+    return render(request, template, context)
 
 
 
