@@ -63,6 +63,10 @@ body {
     border: black;
 }
 
+#search-btn {
+    margin: 0;
+}
+
 input {
     height: 1.7rem;
     border-radius: 10px;
@@ -70,6 +74,10 @@ input {
 
 .hide {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .center-container {
@@ -128,6 +136,87 @@ input {
 .search-form {
     display: flex;
     align-items: center;
+}
+
+.links-open {
+    display: none;
+}
+
+/* Hamburger Nav stylings inspired from https://www.youtube.com/watch?v=dIyVTjJAkLw */
+
+.menu-btn {
+    left: 0;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger {
+    width: 40px;
+    height: 4px;
+    background: #c72b2d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #c72b2d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+    transform: translateY(-12px);
+}
+
+.menu-btn__burger::after {
+    transform: translateY(12px);
+}
+
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@keyframes show-drop-nav {
+    0% {
+        transform: scale(1, 0);
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes hide-drop-nav {
+    0% {
+        transform: scale(1)
+    }
+
+    100% {
+        transform: scale(1, 0)
+    }
 }
 
 /* Style for the review list */
@@ -290,14 +379,62 @@ input {
 
 /* Media queries */
 
+@media screen and (max-width: 1100px) {
+    .title {
+        font-size: 1.8rem;
+    }
+}
+
 @media screen and (max-width: 930px) {
     .card {
         width: 250px;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .search-form {
+        display: none;
+    }
+
+    .links-open {
+        gap: 1rem;
+        display: flex !important;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        justify-content: flex-end;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        padding-bottom: 1rem;
+        animation: show-drop-nav .6s ease-in-out;
+        transform-origin: top;
+    }
+
+    .links-close {
+        animation: hide-drop-nav .6s ease-in-out;
+        transform-origin: top;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .links a {
+        font-size: 1.5rem;
+        text-align: end;
+        margin-right: 4rem;
     }
 }
 
 @media screen and (max-width: 670px) {
     .card {
         width: 100%;
+    }
+
+    .title {
+        font-size: 1.5rem;
     }
 }

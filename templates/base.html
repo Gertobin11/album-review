@@ -14,6 +14,8 @@
     <script src="https://kit.fontawesome.com/f0ca44b893.js" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
     <link href="{% static 'css/styles.css' %}" rel='stylesheet'>
+    <!-- Custom Javascript -->
+    <script defer src="{% static 'js/script.js' %}"></script>
     <title>ALBUM DISCussion</title>
 </head>
 <body>
@@ -27,7 +29,7 @@
                     Search 
                 </label>
                 <input id="search">
-                <button class="btn" type="submit">
+                <button id="search-btn" class="btn" type="submit">
                     Search
                 </button>
             </form>
@@ -44,6 +46,10 @@
                 <a href="#">
                     Link
                 </a>
+            </div>
+            <!-- Button to show on smaller devices for a dropdown Nav -->
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
             </div>
         </nav>
     </header>
