@@ -1,8 +1,8 @@
-from multiprocessing import context
-from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.template.defaulttags import register
 from reviews.models import Review, Album
 from .utils import average_rating
+
 
 def index(request):
     """ Function to render the landing page view """
@@ -13,6 +13,7 @@ def index(request):
     template = 'index.html'
     return render(request, template, context)
 
+
 def search_results(request):
     """ Function to render the results of the users search query """
     if request.method == 'POST':
@@ -22,23 +23,28 @@ def search_results(request):
         template = 'search_results.html'
         return render(request, template, context)
 
+
 def review_list(request):
     """ Function to display the list of reviews left by users """
     reviews = Review.objects.all()
     context = {
-        'reviews' : reviews
+        'reviews': reviews
     }
     template = 'review_list.html'
     return render(request, template, context)
 
+
 def album_list(request):
-    """ Function to display a list of books with the average rating of those albums"""
+    """
+    Function to display a list of books with the average rating of those albums
+    """
     albums = Album.objects.all()
     album_list = []
     for album in albums:
         reviews = album.review_set.all()
         if reviews:
-            album_rating = average_rating([review.rating for review in reviews])
+            album_rating = average_rating([review.rating for
+                                          review in reviews])
             number_of_reviews = len(reviews)
         else:
             album_rating = 0
@@ -54,6 +60,7 @@ def album_list(request):
     template = 'album_list.html'
     return render(request, template, context)
 
+
 def album_view(request, id):
     """ Display individual reviews"""
     album = get_object_or_404(Album, pk=id)
@@ -65,6 +72,15 @@ def album_view(request, id):
     template = 'album_view.html'
     return render(request, template, context)
 
+
+def review(request, id):
+    """ Display an individual review """
+    review = get_object_or_404(Review, pk=id)
+    context = {
+        'review': review
+    }
+    template = 'review.html'
+    return render(request, template, context)
 
 
 @register.filter

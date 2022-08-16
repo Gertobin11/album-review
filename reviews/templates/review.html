@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-wrapper">
+    <h1 class="title top-margin">Review of {{ review.album.title }}</h1>
+    <br>
+    <br>
+    <div class="container-dark center-divider">
+        <div class="review-album-section">
+            <div class="top-margin album-image">
+                <img src="{{MEDIA_URL }}{{ review.album.album_cover }}" alt="Album cover of {{ album }}">
+            </div>
+            <div class="album-body">
+                <p class="top-margin title">{{ review.album|title }}</p>
+                <p><small>By: </small>{{ review.album.artist }}</p>
+                <p><small>Year of Release:  </small> {{ review.album.year_of_release }}</p>
+                <p><small>Genre: </small>{{ review.album.genre }}</p>
+                <p><small>Label: </small>{{ review.album.record_company }}</p>
+                <div class="center-container top-margin">
+                    <a href="{% url 'album_view' review.album.id %}" class="btn card-btn">Album details</a>
+                </div>
+            </div>
+        </div>
+        <div class="review-section">
+            <p class="title">{{ review.title|title }} <span class="title-span"> by {{ review.creator }}</span></p>
+            <p>{{ review.date_created_on }}</p>
+            <br>
+            <p>{{ review.content }}</p>
+            <br>
+            <div class="album-wrapper">
+                <p class="rated">Rated:</p>
+                {% for i in review.rating|get_range %}
+                    {% if review.rating < 6 %}
+                        <span class="vinyl"><i class="fas fa-compact-disc"></i></span>
+                    {% else %}
+                        <span class="vinyl"><i class="fas fa-record-vinyl"></i></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="center-container top-margin">
+                <a href="{% url 'review_list' %}" class="btn card-btn">Back to reviews</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/review_list.js' %}"></script>
+{% endblock %}

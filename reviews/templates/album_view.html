@@ -40,12 +40,18 @@
                     {% endif %}
                 {% endfor %}
                 <div class="center-container top-margin">
-                    <a href="#" class="btn card-btn">Read Here</a>
+                    <a href="{% url 'review' review.id %}" class="btn card-btn">Read Here</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    <br>
+    <div class="top-margin">
+        <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
+        <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
+    </div>
+    <br>
 </main>
 {% endblock %}
 
