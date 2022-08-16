@@ -53,8 +53,13 @@ input {
     margin-top: .7rem;
 }
 
-.red-text {
-    color: #EE4B2B !important;
+.display-card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-text {
+    text-align: right;
 }
 
 /* Nav Styles */
@@ -162,6 +167,12 @@ input {
     width: 100%;
     text-align: start;
     padding: 1rem;
+}
+
+.title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .fa-record-vinyl:before {

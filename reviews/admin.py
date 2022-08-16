@@ -30,6 +30,8 @@ class RecordCompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
+    exclude = ['date_edited_on']
+    fieldsets = (('Info', {'fields': ('creator', 'album')}),('Review', {'fields':('content', 'title', 'rating')}))
     list_display = ('title', 'creator', 'album', 'date_created_on')
     search_fields = ['title', 'creator__username', 'album__title']
     ordering = ['-date_created_on']

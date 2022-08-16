@@ -3,6 +3,8 @@
 {% block content %}
 <main class="main-wrapper">
     <h1 class="title top-margin">Album Details</h1>
+    <br>
+    <br>
     <div class="album-wrapper">
         <div class="album-image">
             <img src="{{MEDIA_URL }}{{ album.album_cover }}" alt="Album cover of {{ album }}">
@@ -15,8 +17,12 @@
             <p><small>Label: </small>{{ album.record_company }}</p>
         </div>
     </div>
-    <div class="container-dark">
-        <h2 class="title top-margin">Reviews</h2>
+    <br>
+    <br>
+    <div class="container-dark top-margin">
+        <div class="title-container">
+            <h2 class="title">Reviews</h2>
+        </div>
         {% for review in reviews %}
         <div class="card">
             <div class="card-body top-margin">
