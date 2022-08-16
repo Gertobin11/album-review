@@ -5,7 +5,3 @@ vinyls.forEach((vinyl, idx) => {
         console.log('hi')
     }, (idx + 1) * 100)
 })
-
-console.log(vinyls)
-
-console.log('hi')

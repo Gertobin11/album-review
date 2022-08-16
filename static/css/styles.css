@@ -287,3 +287,17 @@ input {
         opacity: 1;
     }
 }
+
+/* Media queries */
+
+@media screen and (max-width: 930px) {
+    .card {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .card {
+        width: 100%;
+    }
+}
