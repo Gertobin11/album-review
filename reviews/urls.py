@@ -6,5 +6,6 @@ urlpatterns = [
     path('album-list/', views.album_list, name='album_list'),
     path('album-view/<int:id>', views.album_view, name='album_view'),
     path('review/<int:id>', views.review, name='review'),
-    path('search-results', views.search, name='search')
+    path('search-results', views.search, name='search'),
+    path('advanced-search', views.advanced_sarch, name='advanced_search')
     ]

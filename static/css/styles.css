@@ -50,6 +50,7 @@ body {
     box-shadow: 5px 5px 15px 5px #000000;
     border: 1px solid gold;
     text-decoration: none;
+    height: auto;
 }
 
 .btn:hover {
@@ -86,6 +87,17 @@ input {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.center-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .top-margin {

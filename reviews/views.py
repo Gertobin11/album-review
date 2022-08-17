@@ -78,9 +78,19 @@ def search(request):
     search_term = request.GET.get('search', '')
     album_list = []
     search_count = 0
+    search_category = ''
     if form.is_valid() and form.cleaned_data['search']:
         search = form.cleaned_data['search']
         search_results = Album.objects.filter(title__icontains=search)
+        if form.cleaned_data['search_in']:
+            search_category = form.cleaned_data['search_in']
+            print(search_category)
+            if search_category == 'group':
+                search_results = Album.objects.filter(artist__name__icontains=search)
+            elif search_category == 'title':
+                search_results = Album.objects.filter(title__icontains=search)
+            elif search_category == 'reviewer':
+                search_results = Album.objects.filter(review__creator__username__icontains=search)
         search_count = len(search_results)
         attach_album_attributes(search_results, album_list)
     else:
@@ -90,9 +100,20 @@ def search(request):
     context = {
         'album_list': album_list,
         'search_term': search_term,
-        'search_count': search_count
+        'search_count': search_count,
+        'search_category': search_category
     }
 
+    return render(request, template, context)
+
+
+def advanced_sarch(request):
+    """ View to render an advanced search form """
+    form = SearchForm()
+    template = 'advanced_search.html'
+    context = {
+        'form': form
+    }
     return render(request, template, context)
 
 

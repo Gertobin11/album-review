@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <main class="main-wrapper">
-    <h1 class="page-heading">Search results for "<em>{{ search_term }}"</em></h1>
+    <h1 class="page-heading">Search results for "<em>{{ search_term }}" </em> {% if search_category %} in {{ search_category|title }}{% endif %}</h1>
     <div class="container-dark">
         <p class="search-results">Number of Results : {{ search_count }}</p>
         {% if album_list|length == 0 %}
@@ -35,6 +35,10 @@
             </div>
         </div>
         {% endfor %}
+        <div class="top-margin width-100 center-flex">
+            <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
+            <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
+        </div>
     </div>
 </main>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-wrapper">
+    <h1 class="title top-margin">Advanced Search</h1>
+    <br>
+    <div class="container-dark top-margin">
+        <div class="title-container">
+            <h2 class="title">Search</h2>
+        </div>
+        <form action="{% url 'search' %}">
+            {{ form.as_p }}
+            <button class="btn" type="submit"></button>
+        </form>
+    </div>
+    <br>
+    <div class="top-margin">
+        <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
+        <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
+    </div>
+    <br>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}
