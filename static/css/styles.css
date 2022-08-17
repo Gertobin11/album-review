@@ -374,6 +374,16 @@ input {
     font-size: 1.4rem;
 }
 
+/* Styles for the search page */
+
+.search-results {
+    color: whitesmoke;
+    font-size: 1.4rem;
+    width: 100%;
+    margin: 2rem;
+    text-align: start;
+}
+
 /* Animation */
 
 @keyframes fade-in {

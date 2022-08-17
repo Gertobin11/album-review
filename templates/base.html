@@ -24,11 +24,11 @@
             <a class="home-link" href="{% url 'home' %}">
                 <h1 class="title">ALBUM | <span>DISC</span>-ussion</h1>
             </a>
-            <form class="search-form">
+            <form class="search-form" action="{% url 'search' %}">
                 <label for="search" class="hide">
                     Search 
                 </label>
-                <input id="search">
+                <input id="search" name="search">
                 <button id="search-btn" class="btn" type="submit">
                     Search
                 </button>

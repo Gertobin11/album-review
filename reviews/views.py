@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.template.defaulttags import register
 from reviews.models import Review, Album
-from .utils import average_rating
+from .utils import attach_album_attributes
+from .forms import SearchForm
 
 
 def index(request):
@@ -40,20 +41,7 @@ def album_list(request):
     """
     albums = Album.objects.all()
     album_list = []
-    for album in albums:
-        reviews = album.review_set.all()
-        if reviews:
-            album_rating = average_rating([review.rating for
-                                          review in reviews])
-            number_of_reviews = len(reviews)
-        else:
-            album_rating = 0
-            number_of_reviews = 0
-        album_list.append({
-            'album': album,
-            'album_rating': album_rating,
-            'number_of_reviews': number_of_reviews
-        })
+    attach_album_attributes(albums, album_list)
     context = {
         'album_list': album_list
         }
@@ -80,6 +68,31 @@ def review(request, id):
         'review': review
     }
     template = 'review.html'
+    return render(request, template, context)
+
+
+def search(request):
+    """ Display the search results to the user """
+
+    form = SearchForm(request.GET)
+    search_term = request.GET.get('search', '')
+    album_list = []
+    search_count = 0
+    if form.is_valid() and form.cleaned_data['search']:
+        search = form.cleaned_data['search']
+        search_results = Album.objects.filter(title__icontains=search)
+        search_count = len(search_results)
+        attach_album_attributes(search_results, album_list)
+    else:
+        print(form.errors)
+    template = 'search_results.html'
+
+    context = {
+        'album_list': album_list,
+        'search_term': search_term,
+        'search_count': search_count
+    }
+
     return render(request, template, context)
 
 
