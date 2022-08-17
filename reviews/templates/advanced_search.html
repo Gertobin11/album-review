@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/advanced-search.css' %}">
+{% endblock %}
 {% block content %}
 <main class="main-wrapper">
     <h1 class="title top-margin">Advanced Search</h1>
@@ -8,9 +11,9 @@
         <div class="title-container">
             <h2 class="title">Search</h2>
         </div>
-        <form action="{% url 'search' %}">
+        <form class="center-container" action="{% url 'search' %}">
             {{ form.as_p }}
-            <button class="btn" type="submit"></button>
+            <button class="btn" type="submit">Search</button>
         </form>
     </div>
     <br>

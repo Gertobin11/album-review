@@ -1,0 +1,22 @@
+.center-container > p label {
+    visibility: hidden;
+    display: block;
+}
+
+.center-container > p > * {
+    height: 2rem;
+    width: 50%;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.center-container > p {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.center-container {
+    width: 100%;
+    flex-direction: column;
+}
