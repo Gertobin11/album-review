@@ -73,7 +73,7 @@ input {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .show {
@@ -136,6 +136,14 @@ input {
 .search-form {
     display: flex;
     align-items: center;
+}
+
+.search-form-drop {
+    width: 100%;
+    justify-content: end;
+    margin-right: 4rem;
+    padding-right: 4rem;
+    display: flex !important;
 }
 
 .links-open {
