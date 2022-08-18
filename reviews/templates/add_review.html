@@ -6,17 +6,28 @@
 {% endblock %}
 {% block content %}
 <main class="main-wrapper">
-    <h1 class="title top-margin">Add a review</h1>
+    <h1 class="title top-margin">Add a Review</h1>
     <br>
     <div class="container-dark">
-        <button id="add-artist-btn" class="alt-btn">Add an artist</button>
-        <div class="hide" id="add-artist">
+        <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">Add Artist</button>
+        <div class="width-100 hide" id="add-artist">
             <div class="title-container">
                 <h2 class="title">Add an Artist</h2>
             </div>
             <form class="center-container" action="{% url 'add_artist' %}" method="post">
                 {% csrf_token %}
                 {{ artist_form.as_p }}
+                <button class="btn" type="submit">Add</button>
+            </form>
+        </div>
+        <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">Add Genre</button>
+        <div class="width-100 hide" id="add-genre">
+            <div class="title-container">
+                <h2 class="title">Add a Genre</h2>
+            </div>
+            <form class="center-container" action="#" method="post">
+                {% csrf_token %}
+                {{ genre_form.as_p }}
                 <button class="btn" type="submit">Add</button>
             </form>
         </div>

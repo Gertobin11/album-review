@@ -24,3 +24,11 @@ class ArtistForm(forms.ModelForm):
                    'website': forms.TextInput(
                     attrs={'placeholder': 'Enter Artists Website'})
                    }
+
+
+class GenreForm(forms.ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = Genre
+        widgets = {'name': forms.TextInput(
+                   attrs={'placeholder': 'Enter Genre Name'})}

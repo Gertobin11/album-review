@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from reviews.models import Review, Album
 from .utils import attach_album_attributes
-from .forms import SearchForm, ArtistForm
+from .forms import GenreForm, SearchForm, ArtistForm
 
 
 def index(request):
@@ -120,15 +120,18 @@ def advanced_sarch(request):
 def add_review(request):
     """ Allow a user to upload a review """
     artist_form = ArtistForm()
+    genre_form = GenreForm()
     template = 'add_review.html'
     context = {
-        'artist_form': artist_form
+        'artist_form': artist_form,
+        'genre_form': genre_form
     }
 
     return render(request, template, context)
 
 
 def add_artist(request):
+    """ Allows a user to add info about an artist """
     if request.method == 'POST':
         form = ArtistForm(request.POST)
         if form.is_valid():

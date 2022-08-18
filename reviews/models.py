@@ -31,7 +31,7 @@ class Artist(models.Model):
 
 class Genre(models.Model):
     """ The Genre of the reviewed model """
-    name = models.CharField(max_length=50, help_text='The name of the category')
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
