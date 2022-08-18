@@ -44,12 +44,23 @@
         </div>
         <button id="add-albumbtn" data-type="Album" class="alt-btn add-btn">Add Album</button>
         <div class="width-100 hide" id="add-album">
+            <p class="help-info"><i class="fas fa-arrow-up"></i> Do not see the right Data in the Dropdown Menu? Just add any information you want here <i class="fas fa-arrow-up"></i></p>
             <div class="title-container">
                 <h2 class="title">Add an Album</h2>
             </div>
             <form class="center-container" action="{% url 'add_album' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ album_form.as_p }}
+                <button class="btn" type="submit">Add</button>
+            </form>
+        </div>
+        <div class="width-100" id="add-review">
+            <div class="title-container">
+                <p class="help-info"><i class="fas fa-arrow-up"></i> Do not see the Album you want in the Dropdown Menu? Just add any information you want here <i class="fas fa-arrow-up"></i></p>
+            </div>
+            <form class="center-container" action="{% url 'add_review' %}" method="post">
+                {% csrf_token %}
+                {{ review_form.as_p }}
                 <button class="btn" type="submit">Add</button>
             </form>
         </div>

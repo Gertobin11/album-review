@@ -15,6 +15,9 @@ artist.children[0].innerText = 'Choose Artist'
 let genre = document.getElementById('id_genre')
 genre.children[0].innerText = 'Choose Genre'
 
+let album = document.getElementById('id_album')
+album.children[0].innerText = 'Choose Album to Review'
+
 /* Adding event listeners to the buttons */
 
 showBtns = Array.from(document.getElementsByClassName('add-btn'))

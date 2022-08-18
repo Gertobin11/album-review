@@ -55,13 +55,15 @@ class Album(models.Model):
 
 class Review(models.Model):
     """ The Users Album Review """
-    title = models.CharField(max_length=200, help_text='Title of the review')
-    content = models.TextField(help_text='The review text')
-    rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], help_text='The rating the user has given the album')
-    date_created_on = models.DateTimeField(auto_now_add=True, help_text='The date and time the review was created')
-    date_edited_on = models.DateTimeField(blank=True, null=True, help_text='The date the review was last edited')
-    creator = models.ForeignKey(auth.get_user_model(), on_delete=models.CASCADE)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE, help_text='The album this review is for')
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    rating = models.IntegerField(validators=[MinValueValidator(0),
+                                 MaxValueValidator(10)])
+    date_created_on = models.DateTimeField(auto_now_add=True)
+    date_edited_on = models.DateTimeField(blank=True, null=True)
+    creator = models.ForeignKey(auth.get_user_model(),
+                                on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.album} reviewed by {self.creator}'

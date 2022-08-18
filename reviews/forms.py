@@ -21,7 +21,7 @@ class ArtistForm(forms.ModelForm):
                    'date_formed': forms.TextInput(
                    attrs={'placeholder': ('Artists '
                                           'Year of formation yyyy-mm-dd')}),
-                   'website': forms.TextInput(
+                   'website': forms.URLInput(
                     attrs={'placeholder': 'Enter Artists Website'})
                    }
 
@@ -40,7 +40,7 @@ class RecordCompanyForm(forms.ModelForm):
         model = RecordCompany
         widgets = {'name': forms.TextInput(
                    attrs={'placeholder': 'Enter Record Label Name'}),
-                   'website': forms.TextInput(
+                   'website': forms.URLInput(
                     attrs={'placeholder': 'Enter Record Labels Website'})}
 
 
@@ -50,3 +50,16 @@ class AlbumForm(forms.ModelForm):
         model = Album
         widgets = {'title': forms.TextInput(
                    attrs={'placeholder': 'Enter Title Of The Album'})}
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        exclude = ('creator', 'date_created_on', 'date_edited_on')
+        widgets = {'title': forms.TextInput(
+                   attrs={'placeholder': 'Enter the Title of your Review'}),
+                   'content': forms.TextInput(
+                    attrs={'placeholder': 'Enter your Review'}),
+                   'rating': forms.NumberInput(
+                    attrs={'placeholder': 'Rate the Album /10',
+                           'min': 1, 'max': 10})}

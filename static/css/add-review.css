@@ -10,3 +10,12 @@
 .helptext {
     color: whitesmoke;
 }
+
+.help-info {
+    color: whitesmoke;
+    text-align: center;
+}
+
+.help-info > i {
+    color: gold
+}

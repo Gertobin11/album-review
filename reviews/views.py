@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
+from django.contrib.auth.decorators import login_required
 from reviews.models import Review, Album
 from .utils import attach_album_attributes
 from .forms import (GenreForm, SearchForm, ArtistForm,
-                    RecordCompanyForm, AlbumForm)
+                    RecordCompanyForm, AlbumForm, ReviewForm)
 
 
 def index(request):
@@ -118,23 +119,35 @@ def advanced_sarch(request):
     return render(request, template, context)
 
 
+@login_required
 def add_review(request):
     """ Allow a user to upload a review """
     artist_form = ArtistForm()
     genre_form = GenreForm()
     recored_company_form = RecordCompanyForm()
     album_form = AlbumForm()
+    review_form = ReviewForm()
     template = 'add_review.html'
     context = {
         'artist_form': artist_form,
         'genre_form': genre_form,
         'record_company_form': recored_company_form,
-        'album_form': album_form
+        'album_form': album_form,
+        'review_form': review_form
     }
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid:
+            valid_form = form.save(commit=False)
+            valid_form.creator = request.user
+            valid_form.save()
+        else:
+            print(form.errors)
 
     return render(request, template, context)
 
 
+@login_required
 def add_artist(request):
     """ Allows a user to add info about an artist """
     if request.method == 'POST':
@@ -144,6 +157,7 @@ def add_artist(request):
         return redirect('add_review')
 
 
+@login_required
 def add_genre(request):
     """ Allows the user to add a genre """
     if request.method == 'POST':
@@ -153,6 +167,7 @@ def add_genre(request):
         return redirect('add_review')
 
 
+@login_required
 def add_record_label(request):
     """ Allows the user to add a record label """
     if request.method == 'POST':
@@ -162,6 +177,7 @@ def add_record_label(request):
         return redirect('add_review')
 
 
+@login_required
 def add_album(request):
     """ Allows the user to add an album """
     if request.method == 'POST':
