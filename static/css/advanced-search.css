@@ -20,3 +20,9 @@
     width: 100%;
     flex-direction: column;
 }
+
+@media screen and (max-width: 930px) {
+    .center-container > p > * {
+        width: 100%;
+    }
+}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/advanced-search.css' %}">
+<link rel="stylesheet" href="{% static 'css/add-review.css' %}">
+{% endblock %}
+{% block content %}
+<main class="main-wrapper">
+    <h1 class="title top-margin">Add a review</h1>
+    <br>
+    <div class="container-dark">
+        <button id="add-artist-btn" class="alt-btn">Add an artist</button>
+        <div class="hide" id="add-artist">
+            <div class="title-container">
+                <h2 class="title">Add an Artist</h2>
+            </div>
+            <form class="center-container" action="{% url 'add_artist' %}" method="post">
+                {% csrf_token %}
+                {{ artist_form.as_p }}
+                <button class="btn" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="top-margin">
+        <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
+        <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
+    </div>
+    <br>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+<script src="{% static  'js/add_review.js' %}"></script>
+{% endblock %}

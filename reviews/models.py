@@ -21,8 +21,8 @@ class RecordCompany(models.Model):
 
 class Artist(models.Model):
     """ The artists who recorded the album """
-    name = models.CharField(max_length=70, help_text='The name of the recording artist')
-    date_formed = models.DateField('The year the artists started')
+    name = models.CharField(max_length=70)
+    date_formed = models.DateField()
     website = models.URLField(verbose_name='The artists website')
 
     def __str__(self):

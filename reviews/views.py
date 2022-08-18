@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from reviews.models import Review, Album
 from .utils import attach_album_attributes
-from .forms import SearchForm
+from .forms import SearchForm, ArtistForm
 
 
 def index(request):
@@ -115,6 +115,25 @@ def advanced_sarch(request):
         'form': form
     }
     return render(request, template, context)
+
+
+def add_review(request):
+    """ Allow a user to upload a review """
+    artist_form = ArtistForm()
+    template = 'add_review.html'
+    context = {
+        'artist_form': artist_form
+    }
+
+    return render(request, template, context)
+
+
+def add_artist(request):
+    if request.method == 'POST':
+        form = ArtistForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('add_review')
 
 
 @register.filter
