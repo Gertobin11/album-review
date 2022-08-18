@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from reviews.models import Review, Album
 from .utils import attach_album_attributes
-from .forms import GenreForm, SearchForm, ArtistForm, RecordCompanyForm
+from .forms import (GenreForm, SearchForm, ArtistForm,
+                    RecordCompanyForm, AlbumForm)
 
 
 def index(request):
@@ -122,11 +123,13 @@ def add_review(request):
     artist_form = ArtistForm()
     genre_form = GenreForm()
     recored_company_form = RecordCompanyForm()
+    album_form = AlbumForm()
     template = 'add_review.html'
     context = {
         'artist_form': artist_form,
         'genre_form': genre_form,
-        'record_company_form': recored_company_form
+        'record_company_form': recored_company_form,
+        'album_form': album_form
     }
 
     return render(request, template, context)
@@ -156,6 +159,18 @@ def add_record_label(request):
         form = RecordCompanyForm(request.POST)
         if form.is_valid():
             form.save()
+        return redirect('add_review')
+
+
+def add_album(request):
+    """ Allows the user to add an album """
+    if request.method == 'POST':
+        form = AlbumForm(request.POST, request.FILES)
+        if form.is_valid():
+            print(form)
+            form.save()
+        else:
+            print(form.errors)
         return redirect('add_review')
 
 

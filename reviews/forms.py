@@ -42,3 +42,11 @@ class RecordCompanyForm(forms.ModelForm):
                    attrs={'placeholder': 'Enter Record Label Name'}),
                    'website': forms.TextInput(
                     attrs={'placeholder': 'Enter Record Labels Website'})}
+
+
+class AlbumForm(forms.ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = Album
+        widgets = {'title': forms.TextInput(
+                   attrs={'placeholder': 'Enter Title Of The Album'})}
