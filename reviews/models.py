@@ -12,8 +12,8 @@ for i in range(1900, (datetime.datetime.now().year + 1)):
 
 class RecordCompany(models.Model):
     """ Company that publishes the albums """
-    name = models.CharField(max_length=50, help_text='The name of the record company')
-    website = models.URLField(help_text='The Companies website')
+    name = models.CharField(max_length=50)
+    website = models.URLField()
 
     def __str__(self):
         return self.name

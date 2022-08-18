@@ -25,9 +25,20 @@
             <div class="title-container">
                 <h2 class="title">Add a Genre</h2>
             </div>
-            <form class="center-container" action="#" method="post">
+            <form class="center-container" action="{% url 'add_genre' %}" method="post">
                 {% csrf_token %}
                 {{ genre_form.as_p }}
+                <button class="btn" type="submit">Add</button>
+            </form>
+        </div>
+        <button id="add-record-company-btn" data-type="Record Label" class="alt-btn add-btn">Add Record Label</button>
+        <div class="width-100 hide" id="add-genre">
+            <div class="title-container">
+                <h2 class="title">Add a Record Label</h2>
+            </div>
+            <form class="center-container" action="{% url 'add_record_label' %}" method="post">
+                {% csrf_token %}
+                {{ record_company_form.as_p }}
                 <button class="btn" type="submit">Add</button>
             </form>
         </div>

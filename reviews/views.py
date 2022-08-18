@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from reviews.models import Review, Album
 from .utils import attach_album_attributes
-from .forms import GenreForm, SearchForm, ArtistForm
+from .forms import GenreForm, SearchForm, ArtistForm, RecordCompanyForm
 
 
 def index(request):
@@ -121,10 +121,12 @@ def add_review(request):
     """ Allow a user to upload a review """
     artist_form = ArtistForm()
     genre_form = GenreForm()
+    recored_company_form = RecordCompanyForm()
     template = 'add_review.html'
     context = {
         'artist_form': artist_form,
-        'genre_form': genre_form
+        'genre_form': genre_form,
+        'record_company_form': recored_company_form
     }
 
     return render(request, template, context)
@@ -134,6 +136,24 @@ def add_artist(request):
     """ Allows a user to add info about an artist """
     if request.method == 'POST':
         form = ArtistForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('add_review')
+
+
+def add_genre(request):
+    """ Allows the user to add a genre """
+    if request.method == 'POST':
+        form = GenreForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('add_review')
+
+
+def add_record_label(request):
+    """ Allows the user to add a record label """
+    if request.method == 'POST':
+        form = RecordCompanyForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('add_review')

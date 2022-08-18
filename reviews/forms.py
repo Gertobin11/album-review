@@ -32,3 +32,13 @@ class GenreForm(forms.ModelForm):
         model = Genre
         widgets = {'name': forms.TextInput(
                    attrs={'placeholder': 'Enter Genre Name'})}
+
+
+class RecordCompanyForm(forms.ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = RecordCompany
+        widgets = {'name': forms.TextInput(
+                   attrs={'placeholder': 'Enter Record Label Name'}),
+                   'website': forms.TextInput(
+                    attrs={'placeholder': 'Enter Record Labels Website'})}

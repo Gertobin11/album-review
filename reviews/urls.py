@@ -9,5 +9,7 @@ urlpatterns = [
     path('search-results/', views.search, name='search'),
     path('advanced-search/', views.advanced_sarch, name='advanced_search'),
     path('add-review/', views.add_review, name='add_review'),
-    path('add-artist', views.add_artist, name='add_artist')
+    path('add-artist', views.add_artist, name='add_artist'),
+    path('add-genre', views.add_genre, name='add_genre'),
+    path('add-record-label', views.add_record_label, name='add_record_label')
     ]
