@@ -137,12 +137,15 @@ def add_review(request):
     }
     if request.method == 'POST':
         form = ReviewForm(request.POST)
-        if form.is_valid:
-            valid_form = form.save(commit=False)
-            valid_form.creator = request.user
-            valid_form.save()
-        else:
-            print(form.errors)
+        try:
+            if form.is_valid():
+                valid_form = form.save(commit=False)
+                valid_form.creator = request.user
+                valid_form.save()
+            else:
+                print(form.errors)
+        except ValueError as error:
+            print('form-error', error)
 
     return render(request, template, context)
 
