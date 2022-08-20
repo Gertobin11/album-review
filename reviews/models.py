@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime
 
 
-YEAR_CHOICES =  []
+YEAR_CHOICES = []
 
 for i in range(1900, (datetime.datetime.now().year + 1)):
     YEAR_CHOICES.append((i, i))

@@ -19,3 +19,34 @@
 .help-info > i {
     color: gold
 }
+
+#search-results-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-results {
+    padding: 1rem;
+    width: 50%;
+    background-color: whitesmoke;
+    color: black;
+    min-height: 20rem;
+}
+
+/* Animation while page loads results from API */
+
+.load-spinner {
+    animation: load-spinner 1.2s linear infinite;
+    font-size: 2.5rem;
+}
+
+@keyframes load-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
