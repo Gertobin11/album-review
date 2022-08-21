@@ -61,5 +61,4 @@ class ReviewForm(forms.ModelForm):
                    'content': forms.TextInput(
                     attrs={'placeholder': 'Enter your Review'}),
                    'rating': forms.NumberInput(
-                    attrs={'placeholder': 'Rate the Album /10',
-                           'min': 1, 'max': 10})}
+                    attrs={'placeholder': 'Rate the Album /10'})}

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from django.contrib.auth.decorators import login_required
 from reviews.models import Review, Album
-from .utils import attach_album_attributes
+from .utils import attach_album_attributes, success_message
 from .forms import (GenreForm, SearchForm, ArtistForm,
                     RecordCompanyForm, AlbumForm, ReviewForm)
 
@@ -137,15 +137,13 @@ def add_review(request):
     }
     if request.method == 'POST':
         form = ReviewForm(request.POST)
-        try:
-            if form.is_valid():
-                valid_form = form.save(commit=False)
-                valid_form.creator = request.user
-                valid_form.save()
-            else:
-                print(form.errors)
-        except ValueError as error:
-            print('form-error', error)
+        if form.is_valid():
+            valid_form = form.save(commit=False)
+            valid_form.creator = request.user
+            valid_form.save()
+            success_message(request, 'title')
+        else:
+            print(form.errors)
 
     return render(request, template, context)
 
@@ -157,6 +155,7 @@ def add_artist(request):
         form = ArtistForm(request.POST)
         if form.is_valid():
             form.save()
+            success_message(request, 'name')
         return redirect('add_review')
 
 
@@ -167,6 +166,7 @@ def add_genre(request):
         form = GenreForm(request.POST)
         if form.is_valid():
             form.save()
+            success_message(request, 'name')
         return redirect('add_review')
 
 
@@ -177,6 +177,7 @@ def add_record_label(request):
         form = RecordCompanyForm(request.POST)
         if form.is_valid():
             form.save()
+            success_message(request, 'name')
         return redirect('add_review')
 
 
@@ -186,8 +187,8 @@ def add_album(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES)
         if form.is_valid():
-            print(form)
             form.save()
+            success_message(request, 'title')
         else:
             print(form.errors)
         return redirect('add_review')

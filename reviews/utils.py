@@ -1,3 +1,5 @@
+from django.contrib import messages
+
 def average_rating(rating_list):
     """ Function to return the average rating of items """
     if not rating_list:
@@ -23,3 +25,9 @@ def attach_album_attributes(albums, album_list):
             'number_of_reviews': number_of_reviews
         })
     return album_list
+
+
+def success_message(request, field):
+    """ Add a success message and get the name from the field """
+    name = request.POST.get(field)
+    return messages.success(request, f'{name} has been added !')
