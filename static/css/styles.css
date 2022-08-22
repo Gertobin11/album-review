@@ -137,7 +137,7 @@ input {
 .links a {
     text-decoration: none;
     color: gold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .links a:hover {
@@ -148,6 +148,8 @@ input {
 .search-form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search-form-drop {
@@ -156,6 +158,14 @@ input {
     margin-right: 4rem;
     padding-right: 4rem;
     display: flex !important;
+    flex-wrap: wrap-reverse;
+}
+
+.advanced-search {
+    color: gold;
+    width: 50%;
+    margin: 0 0 .4rem 0 !important;
+    text-decoration: none;
 }
 
 .links-open {
@@ -432,6 +442,12 @@ input {
     animation: 1s forwards fade-messages-in;
 }
 
+.message-card.error {
+    background-color: 	red;
+    color: whitesmoke;
+    animation: 1s forwards fade-messages-in;
+}
+
 .remove-message-animation {
     animation: 1s forwards fade-messages-out !important;
 }
@@ -496,6 +512,11 @@ input {
 
     .search-form {
         display: none;
+    }
+
+    .advanced-search {
+        margin: 0 0 .4rem 0 !important;
+        width: 100%;
     }
 
     .links-open {

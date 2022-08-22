@@ -50,5 +50,9 @@ messages.forEach((message) => {
     sleep += 300
     setTimeout(() => {
         message.classList.add('remove-message-animation');
+        /* Setting an addtional timeout to remove the element afer the animation ends */
+        setTimeout(() => {
+            message.remove()
+        }, 1000)
     }, 3500 + sleep)
 })

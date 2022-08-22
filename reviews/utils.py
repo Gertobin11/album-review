@@ -28,7 +28,10 @@ def attach_album_attributes(albums, album_list):
     return album_list
 
 
-def success_message(request, field):
-    """ Add a success message and get the name from the field """
+def user_message(request, type, field):
+    """ Add a level type message and get the name from the field """
     name = request.POST.get(field)
-    return messages.success(request, f'{name} has been added !')
+    if type == 'success':
+        return messages.success(request, f'{name} has been added !')
+    elif type == 'error':
+        return messages.error(request, 'Something went wrong, please try again' )
