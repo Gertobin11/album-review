@@ -39,3 +39,16 @@ const handleBurgerClick = () => {
 
 /* Handle the clicking of the burger icon to show the nav and hide it again */
 menuBtn.addEventListener('click', handleBurgerClick)
+
+/* Code to apply animation to messages and auto close the container */
+
+let messages = Array.from(document.getElementsByClassName('message-card'))
+let sleep = 0;
+
+/* If multiple messages have them fade at different times */
+messages.forEach((message) => {
+    sleep += 300
+    setTimeout(() => {
+        message.classList.add('remove-message-animation');
+    }, 3500 + sleep)
+})

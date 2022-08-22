@@ -57,12 +57,14 @@
         </nav>
     </header>
     <!--- Display messages to the user -->
-    {% for message in messages %}
-        <p>
-            <em>{{ message.level_tag|title }}</em>
-            {{ message }}
-        </p>
-    {% endfor %}
+    <div id="message-container">
+        {% for message in messages %}
+            <div class="{{ message.level_tag }} message-card">
+                <p class="message-title"><em>{{ message.level_tag|title }}</em></p>
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    </div>
     {% block content %}
     {% endblock %}
     <footer>

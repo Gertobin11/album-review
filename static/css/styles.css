@@ -397,6 +397,45 @@ input {
 }
 
 
+/* Styles for the pop up messages */
+
+#message-container {
+    position:absolute;
+    top: 4rem;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message-card {
+    min-height: 5rem;
+    display: block;
+    border: 1px solid whitesmoke;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.message-card > p {
+    padding: 1rem;
+}
+
+.message-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Eczar', serif;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.message-card.success {
+    background-color: 	#90EE90;
+    color: whitesmoke;
+    animation: 1s forwards fade-messages-in;
+}
+
+.remove-message-animation {
+    animation: 1s forwards fade-messages-out !important;
+}
+
 /* Animation */
 
 @keyframes fade-in {
@@ -405,6 +444,36 @@ input {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes fade-messages-in {
+    0% {
+        transform-style: preserve-3d;
+        transform: translate3d(200px, 10px, 0px);
+        opacity: 0;
+    }
+
+    80% {
+        transform: translate3d(-60px, 10px, 0px);
+    }
+    100% {
+        transform: translate3d(-20px, 10px, 0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-messages-out{
+    0% {
+        transform: translate3d(-20px, 10px, 0px);
+        opacity: 1;
+    }
+    10% {
+        transform: translate3d(-60px, 10px, 0px)
+    }
+    100% {
+        transform: translate3d(200px, 10px, 0px);
+        opacity: 0;
     }
 }
 

@@ -1,5 +1,6 @@
 from django.contrib import messages
 
+
 def average_rating(rating_list):
     """ Function to return the average rating of items """
     if not rating_list:
