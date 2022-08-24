@@ -452,6 +452,62 @@ input {
     animation: 1s forwards fade-messages-out !important;
 }
 
+.auth-wrapper {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-content {
+    color: whitesmoke;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background-color: rgba(19, 20, 20, 0.85);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    padding: 2rem 2rem;
+}
+
+#content-main {
+    display: contents;
+}
+
+#content-main > form {
+    gap: 0.7rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-row {
+    width: 100%;
+}
+
+.form-row > input {
+    width: 80%;
+}
+
+.auth-title {
+    font-size: 1.6rem;
+    color: gold;
+    text-align: center;
+}
+
+.auth-link {
+    color: #EE4B2B;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    color: gold;
+}
+
 /* Animation */
 
 @keyframes fade-in {
