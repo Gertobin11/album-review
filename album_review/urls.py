@@ -1,4 +1,3 @@
-from argparse import Namespace
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -16,6 +15,10 @@ urlpatterns = [
              success_url=reverse_lazy('accounts:password_reset_complete')
          ), name='password_reset_confirm'
          ),
+    path('password_change', views.PasswordChangeView.as_view(
+        success_url=reverse_lazy(
+            'accounts:password_change_done')
+    ), name='password_change'),
     path('admin/', admin.site.urls),
     path('', include('reviews.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

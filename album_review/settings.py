@@ -29,6 +29,8 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = []
 
+# Redirect to custom Sign in page
+LOGIN_URL = '/accountslogin/'
 
 # Application definition
 
