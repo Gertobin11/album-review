@@ -3,8 +3,12 @@
 
 {% block content %}
 
-<p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
-
-<p><a href="{% url 'accounts:login' %}">{% trans 'Log in again' %}</a></p>
+<section class="auth-wrapper">
+    <div class="auth-content">
+        <h3 class="auth-title">Logged out successfully</h3>
+        <p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+        <p><a class="alt-btn" href="{% url 'accounts:login' %}">{% trans 'Log in again' %}</a></p>
+    </div>
+</section>
 
 {% endblock %}
