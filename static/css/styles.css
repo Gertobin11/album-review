@@ -172,6 +172,41 @@ input {
     display: none;
 }
 
+#account {
+    position: relative;
+    text-decoration: none;
+    color: gold;
+    font-size: 1.3rem;
+}
+
+#account:hover,
+#account:focus,
+#account-active {
+    color: #EE4B2B;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#account-links {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: .5rem;
+    background-color: black;
+    padding: 1rem 2rem;
+    gap: .5rem;
+    animation: show-drop-nav .6s ease-in-out;
+    transform-origin: top;
+}
+
+.links-close {
+    animation: hide-drop-nav .6s ease-in-out !important;
+    transform-origin: top;
+}
+
 /* Hamburger Nav stylings inspired from https://www.youtube.com/watch?v=dIyVTjJAkLw */
 
 .menu-btn {
@@ -604,6 +639,23 @@ input {
         text-align: end;
         margin-right: 4rem;
     }
+
+    #account {
+        font-size: 1.5rem;
+        text-align: end;
+        margin-right: 4rem;
+    }
+
+    #account-links {
+        position: unset;
+        font-size: 1.5rem;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    #account-links > a {
+        margin: 0;
+    } 
 }
 
 @media screen and (max-width: 670px) {
