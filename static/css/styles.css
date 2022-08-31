@@ -598,9 +598,19 @@ input {
     }
 }
 
+@media screen and (max-width: 1110px) {
+    .link-span {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 930px) {
     .card {
         width: 250px;
+    }
+
+    .link-span {
+        display: inline;
     }
 
     .home-link {
@@ -665,6 +675,8 @@ input {
 
     #account-links > a {
         margin: 0;
+        font-size: 1.1rem;
+        text-decoration: none;
     } 
 }
 
