@@ -19,6 +19,7 @@ body {
 
 .home-link {
     text-decoration: none;
+    width: 40%;
 }
 
 .home-link>*:hover,
@@ -129,7 +130,7 @@ input {
 }
 
 .links {
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -205,6 +206,11 @@ input {
 .links-close {
     animation: hide-drop-nav .6s ease-in-out !important;
     transform-origin: top;
+}
+
+.link-span {
+    color: #EE4B2B;
+    font-size: 1.1rem;
 }
 
 /* Hamburger Nav stylings inspired from https://www.youtube.com/watch?v=dIyVTjJAkLw */
@@ -586,7 +592,7 @@ input {
 
 /* Media queries */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1145px) {
     .title {
         font-size: 1.8rem;
     }
@@ -595,6 +601,10 @@ input {
 @media screen and (max-width: 930px) {
     .card {
         width: 250px;
+    }
+
+    .home-link {
+        width: max-content;
     }
 
     .links {

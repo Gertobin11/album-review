@@ -8,7 +8,7 @@ const accountLinks = document.getElementById('account-links')
 
 /* Declaring the dropdown Account divs from the cloned node */
 const dropdownAccount = linksCopy.childNodes[7]
-const dropdownAccountLinks = dropdownAccount.childNodes[3]
+const dropdownAccountLinks = dropdownAccount.childNodes[5]
 
 /* Append the cloned variables to the document and hide them initially */
 nav.appendChild(linksCopy)
@@ -76,8 +76,13 @@ const handleDropdownAccountClick = () => {
         dropdownAccountStatus = 'open'
     }
     else if (dropdownAccountStatus === 'open'){
-        dropdownAccountLinks.classList.add('hide')
         dropdownAccountStatus = 'closed'
+        dropdownAccountLinks.classList.add('links-close')
+        /* Set a timeout to allow the animation to run before hiding the content */
+        setTimeout(() => {
+            dropdownAccountLinks.classList.remove('links-close')
+            dropdownAccountLinks.classList.add('hide')
+    }, 500)
     }
 }
 
