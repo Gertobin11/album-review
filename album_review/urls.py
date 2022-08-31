@@ -21,5 +21,5 @@ urlpatterns = [
     ), name='password_change'),
     path('admin/', admin.site.urls),
     path('', include('reviews.urls')),
-    path('profiles/', include('profiles.url'))
+    path('profiles/', include('profiles.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
