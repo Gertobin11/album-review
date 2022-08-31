@@ -493,6 +493,8 @@ input {
     animation: 1s forwards fade-messages-out !important;
 }
 
+/* Stylings for the allauth templates - editing crispy forms */
+
 .auth-wrapper {
     min-height: 80vh;
     display: flex;
@@ -524,8 +526,12 @@ input {
     list-style: none;
 }
 
-#content-main {
-    display: contents;
+.ctrlHolder > input {
+    width: 100%;
+}
+
+.checkboxinput.checkboxinput {
+    width: max-content;
 }
 
 #content-main > form {
@@ -536,12 +542,18 @@ input {
     align-items: flex-start;
 }
 
-.form-row {
-    width: 100%;
-}
-
-.form-row > input {
-    width: 80%;
+.auth-btn {
+    border-radius: 10px;
+    color: gold;
+    background-color: black;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 5px #000000;
+    border: 1px solid gold;
+    text-decoration: none;
+    height: auto;
+    margin-top: .8rem;
+    padding: .2rem;
+    font-size: 1rem;
 }
 
 .auth-title {

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'reviews',
-    'profiles'
+    'profiles',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,8 @@ SOCIALACCONT_PROVIDERS = {
         }
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 
 # Static files (CSS, JavaScript, Images)

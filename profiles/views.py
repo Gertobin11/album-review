@@ -6,7 +6,8 @@ def profiles(request):
     """ Return all created profiles"""
     profiles = Profile.objects.all()
     template = 'profiles.html'
+    print(profiles)
     context = {
-        'profles': profiles
+        'profiles': profiles
     }
     return render(request, template, context)

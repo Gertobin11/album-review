@@ -10,7 +10,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50, null=True, blank=True)
     favourite_genre = models.ForeignKey(Genre, on_delete=models.CASCADE,
-                                        blank=True)
+                                        blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     edited_on = models.DateTimeField(auto_now=True)
 
