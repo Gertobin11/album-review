@@ -514,6 +514,16 @@ input {
     padding: 2rem 2rem;
 }
 
+.socialaccount_providers > li > * {
+    size: 1.2rem;
+    color: gold;
+    text-decoration: none;
+}
+
+.socialaccount_providers > li {
+    list-style: none;
+}
+
 #content-main {
     display: contents;
 }

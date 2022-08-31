@@ -29,8 +29,12 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = []
 
-# Redirect to custom Sign in page
-LOGIN_URL = '/accountslogin/'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+SITE_ID = 1
 
 # Application definition
 
@@ -40,7 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'reviews',
     'profiles'
 ]
@@ -62,7 +71,8 @@ ROOT_URLCONF = 'album_review.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates',
+                 BASE_DIR / 'templates/allauth'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +84,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
 WSGI_APPLICATION = 'album_review.wsgi.application'
@@ -121,6 +136,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+SOCIALACCONT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online'
+        }
+    }
+}
 
 
 # Static files (CSS, JavaScript, Images)

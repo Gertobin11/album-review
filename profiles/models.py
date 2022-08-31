@@ -21,9 +21,9 @@ class Profile(models.Model):
         return f"{self.user}'s Profile"
 
 
-def create_profie(self, instance, created, **kwargs):
+def create_profile(instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
 
-post_save.connect(create_profie, sender=User)
+post_save.connect(create_profile, sender=User)
