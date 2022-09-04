@@ -1,10 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
+{% endblock %}
 {% block content %}
-<div>
-{% for profile in profiles %}
-{{ profile.user }}
-
-{% endfor %}
+<div class="full-span center-container top-margin">
+    <h1 class="title top-margin">User Profiles</h1>
 </div>
+<section class="main-grid top-margin">
+    {% for profile in profile_list %}
+        <div class="profile-card span-1">
+            <div class="card-body">
+                <div class="card-img">
+                    {% if profile.profile.profile_pic %}
+                        <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="profile image">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+                    {% endif %}
+                </div>
+                <div class="card-text">
+                    <p>{{ profile.profile.user }}</p>
+                    <p>{{ profile.profile.favourite_genre }}</p>
+                    <p>{{ profile.no_of_reviews }} reviews</p>
+                    <small>{{ profile.profile.created_on }}</small>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="link" href='#'>Check out my profile</a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
 
 {% endblock %}

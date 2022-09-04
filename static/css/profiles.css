@@ -1,0 +1,70 @@
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(19, 20, 20, 0.85);
+    padding: 3rem;
+}
+
+.full-span {
+    grid-column: span 5;
+}
+
+.span-1 {
+    grid-column: span 1;
+}
+
+.profile-card {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #b3b3b3;
+}
+
+.card-img {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-img img {
+    height: 100%;
+    border-radius: 25px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    height: auto;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.link {
+    color: #EE4B2B;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: grey;
+}
+
+@media screen and (max-width: 1105px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 0%;
+    }
+}

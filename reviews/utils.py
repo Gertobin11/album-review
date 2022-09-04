@@ -34,4 +34,5 @@ def user_message(request, type, field):
     if type == 'success':
         return messages.success(request, f'{name} has been added !')
     elif type == 'error':
-        return messages.error(request, 'Something went wrong, please try again' )
+        return messages.error(request, 'Something went wrong,'
+                              'please try again')
