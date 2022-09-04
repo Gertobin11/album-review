@@ -25,10 +25,19 @@
         </div>
         {% for review in reviews %}
         <div class="card">
-            <div class="card-body top-margin">
-                <p>{{ review.title|title }}</p>
-                <p><small>Reviewed by: </small>{{ review.creator }}</p>
-                <p><small>On </small> {{ review.date_created_on }}</p>
+            <div class="card-body">
+                <div class="profile-img">
+                    {% if review.creator.profile_set.first.profile_pic %}
+                    <img src="{{ MEDIA_URL }}{{ review.creator.profile_set.first.profile_pic }}" alt="Reviewers Profile Pic">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+                    {% endif %}
+                </div>
+                <div class="card-text top-margin">
+                    <p>{{ review.title|title }}</p>
+                    <p><small>Reviewed by: </small>{{ review.creator }}</p>
+                    <p><small>On </small> {{ review.date_created_on }}</p>
+                </div>
             </div>
             <div class="card-footer">
                 <p class="rated">Rated:</p>

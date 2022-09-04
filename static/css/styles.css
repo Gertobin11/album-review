@@ -354,10 +354,29 @@ input {
     width: 100%;
 }
 
-.card-body {
+.card-text {
     width: 100%;
     text-align: start;
     padding: 1rem;
+}
+
+.card-body {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    padding: 0 .5rem;
+}
+
+.profile-img {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img img {
+    height: 100%;
+    border-radius: 25px;
 }
 
 .title-container {
