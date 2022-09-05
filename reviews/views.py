@@ -9,10 +9,7 @@ from .forms import (GenreForm, SearchForm, ArtistForm,
 
 def index(request):
     """ Function to render the landing page view """
-    name = request.GET.get('name') or "world"
-    context = {
-        'name': name
-    }
+    context = {}
     template = 'index.html'
     return render(request, template, context)
 

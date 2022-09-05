@@ -1,1 +1,38 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<section id="main-grid">
+
+    <div id="top-profiles">
+        <h2 class="top-profile-title">Top Profiles</h2>
+        <br>
+        {% for profile in top_profiles %}
+        <div class="card-body flip-card">
+            <div class="card-inner">
+                <div class="profile-img card-front">
+                    {% if profile.profile.profile_pic %}
+                    <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+                    {% endif %}
+                    <p>{{ profile.profile }}</p>
+                </div>
+                <div class="card-text no-padding card-back">
+                    <p>{{ profile.profile.user }}</p>
+                    <p>Reviews: {{ profile.no_of_reviews }}</p>
+                    <a href="#">View</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        {% endfor %}
+    </div>
+    <div id="top-albums">
+        
+    </div>
+</section>
+
+{% endblock %}
