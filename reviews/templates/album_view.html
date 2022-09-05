@@ -25,7 +25,7 @@
         </div>
         {% for review in reviews %}
         <div class="card">
-            <div class="card-body">
+            <div class="card-body top-margin">
                 <div class="profile-img">
                     {% if review.creator.profile_set.first.profile_pic %}
                     <img src="{{ MEDIA_URL }}{{ review.creator.profile_set.first.profile_pic }}" alt="Reviewers Profile Pic">

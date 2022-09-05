@@ -4,8 +4,34 @@
 
 <section id="main-grid">
 
+    <div id="latest-reviews">
+        <h2 class="top-title">Latest Reviews</h2>
+        <br>
+        {% for review in latest_reviews %}
+        <div class="card-body flip-card latest-reviews-card">
+            <div class="card-inner">
+                <div class="top-profile-img card-front">
+                    <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="Reviewers Profile Pic">
+                    <div class="card-text">
+                        <p>{{ review.album.artist }}</p>
+                        <p>{{ review.album }}</p>
+                    </div>
+                </div>
+                <div class="card-text no-padding card-back">
+                    <p>Review by: {{ review.creator }}</p>
+                    <p> Rated: {{ review.rating }}</p>
+                    <a href="#">View</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        {% endfor %}
+    </div>
+
     <div id="top-profiles">
-        <h2 class="top-profile-title">Top Profiles</h2>
+        <h2 class="top-title">Top Profiles</h2>
         <br>
         {% for profile in top_profiles %}
         <div class="card-body flip-card">
@@ -29,9 +55,6 @@
         <hr>
         <br>
         {% endfor %}
-    </div>
-    <div id="top-albums">
-        
     </div>
 </section>
 

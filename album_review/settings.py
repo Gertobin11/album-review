@@ -82,7 +82,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'profiles.contexts.top_profiles'
+                'profiles.contexts.top_profiles',
+                'reviews.contexts.latest_reviews'
             ],
         },
     },
