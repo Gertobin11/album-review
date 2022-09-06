@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<section id="main-grid">
+<main id="main-grid">
 
-    <div id="latest-reviews">
+    <section id="latest-reviews">
         <h2 class="top-title">Latest Reviews</h2>
         <br>
         {% for review in latest_reviews %}
@@ -20,7 +22,7 @@
                 <div class="card-text no-padding card-back">
                     <p>Review by: {{ review.creator }}</p>
                     <p> Rated: {{ review.rating }}</p>
-                    <a href="#">View</a>
+                    <a href="#">Read Review</a>
                 </div>
             </div>
         </div>
@@ -28,13 +30,38 @@
         <hr>
         <br>
         {% endfor %}
-    </div>
+    </section>
 
-    <div id="top-profiles">
+    <section id="main-content">
+        <div id="welcome">
+            <h1>
+                Welcome To AlbumDISCussion!
+            </h1>
+            <p>
+                A place where you can come to check out the latest reviews left by or very knowlegable members.
+                Feel free to like and comment on the review, maybe you do not agree with the review or the rating so why not latest-reviews
+                your own review and see how the community responds! Create a Profile browse the albums in which you want to review.
+                If you do not see an artist or an album go ahead and add them. You can find all the album info you need by using our search feature, just type the band and album and 
+                it will redirect to the wikipedia page. But most importantly have fun and be inspired for your next album listen
+            </p>
+        </div>
+        <div id="check-reviews" class="main-cards">
+            <div class="card-fade"></div>
+            <a href="#" class="content-btn">See Our Reviews</a>
+        </div>
+        <div id="check-albums">
+
+        </div>
+        <div id="add-review">
+
+        </div>
+    </section>
+
+    <section id="top-profiles">
         <h2 class="top-title">Top Profiles</h2>
         <br>
         {% for profile in top_profiles %}
-        <div class="card-body flip-card">
+        <div class="card-body flip-card top-profiles-card">
             <div class="card-inner">
                 <div class="profile-img card-front">
                     {% if profile.profile.profile_pic %}
@@ -55,7 +82,10 @@
         <hr>
         <br>
         {% endfor %}
-    </div>
-</section>
+    </section>
+</main>
+{% block postloadjs %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

@@ -67,11 +67,12 @@ body {
 
 #search-btn {
     margin: 0;
+    border-radius: 0 10px 10px 0;
 }
 
 input {
     height: 1.7rem;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
 }
 
 .hide {
@@ -217,6 +218,17 @@ input {
     font-size: 1.1rem;
 }
 
+/* Style to hide the header and have it appear on load */
+
+#main-header {
+    transform: translateY(-300px);
+    transition: transform 0.6s;
+}
+
+.slide-down {
+    transform: translateY(0px) !important;
+}
+
 /* Hamburger Nav stylings inspired from https://www.youtube.com/watch?v=dIyVTjJAkLw */
 
 .menu-btn {
@@ -316,6 +328,87 @@ input {
 
 .latest-reviews-card {
     height: 150px !important;
+    transform: translateX(-400px);
+    transition: transform 0.8s;
+}
+
+.slide-in-card {
+    transform: translateX(0px) !important;
+}
+
+/* Style for main content cards */
+
+#main-content {
+    grid-column-start: 3;
+    grid-column-end: 9;
+    gap: .8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#welcome {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    background-color: gold;
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px 5px #585858;
+    padding: .8rem;
+}
+
+#welcome > h1 {
+    text-align: center;
+    font-family: 'Eczar', serif;
+}
+#welcome > p {
+    padding: .6rem;
+}
+
+.main-cards {
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px 5px #585858;
+}
+
+#check-reviews {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    box-shadow: 5px 5px 15px 5px #585858;
+    background-color: black;
+    position: relative;    
+}
+
+.card-fade {
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    background-image: url("/media/album_covers/Alleyezonme.jpg");
+}
+
+.content-btn {
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    padding: .8rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px double white;
+    color: white;
+    box-shadow: 3px 3px 5px 3px #585858;
+    opacity: 1;
+}
+
+.content-btn:hover,
+.content-btn:active,
+.content-btn:focus {
+    box-shadow: inset 0 0 20px #fff,
+    3px 3px 5px 0 #ccc;
 }
 
 /* Style for making the top profiles card flip */
@@ -327,6 +420,11 @@ input {
     box-shadow: 5px 5px 15px 5px #585858;
     border-radius: 25px;
     padding: 1rem .6rem;
+}
+
+.top-profiles-card {
+    transform: translateX(400px);
+    transition: transform 0.6s;
 }
 
 .top-title {

@@ -5,6 +5,7 @@ const nav = document.getElementsByClassName('main-nav')[0]
 const searchCopy = document.getElementsByClassName('search-form')[0].cloneNode(true)
 const account = document.getElementById('account')
 const accountLinks = document.getElementById('account-links')
+const header = document.getElementById('main-header')
 
 /* Declaring the dropdown Account divs from the cloned node */
 const dropdownAccount = linksCopy.childNodes[7]
@@ -110,4 +111,9 @@ messages.forEach((message) => {
             message.remove()
         }, 1000)
     }, 3500 + sleep)
+})
+
+/* Show the Nav on page laod */
+document.addEventListener('DOMContentLoaded', function() {
+    header.classList.add('slide-down')
 })
