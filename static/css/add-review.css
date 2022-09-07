@@ -50,3 +50,35 @@
         transform: rotate(360deg);
     }
 }
+
+/* Animate the forms being chosen */
+
+.fade-in-form {
+    animation: fade-in-form .5s forwards;
+}
+
+.fade-out-form {
+    animation: fade-out-form .5s forwards
+}
+
+@keyframes fade-in-form {
+    from {
+        opacity: 0;
+        transform: translateX(-500px)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+@keyframes fade-out-form {
+    from {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+    to{
+        opacity: 0;
+        transform: translateX(500px)
+    }
+}

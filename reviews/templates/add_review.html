@@ -5,39 +5,10 @@
 <main class="main-wrapper">
   <h1 class="title top-margin">Add a Review</h1>
   <br />
-  <div class="container-dark">
-    <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">
-      Add Artist
-    </button>
-    <div class="width-100 hide" id="add-artist">
-      <div class="title-container">
-        <h2 class="title">Add an Artist</h2>
-      </div>
-      <form
-        class="center-container"
-        action="{% url 'add_artist' %}"
-        method="post"
-      >
-        {% csrf_token %} {{ artist_form.as_p }}
-        <button class="btn" type="submit">Add</button>
-      </form>
-    </div>
-    <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">
-      Add Genre
-    </button>
-    <div class="width-100 hide" id="add-genre">
-      <div class="title-container">
-        <h2 class="title">Add a Genre</h2>
-      </div>
-      <form
-        class="center-container"
-        action="{% url 'add_genre' %}"
-        method="post"
-      >
-        {% csrf_token %} {{ genre_form.as_p }}
-        <button class="btn" type="submit">Add</button>
-      </form>
-    </div>
+
+  <!-- Review Form -->
+
+  <div class="container-dark form-div" data-type="Review">
     <button
       id="add-record-company-btn"
       data-type="Record Label"
@@ -45,41 +16,15 @@
     >
       Add Record Label
     </button>
-    <div class="width-100 hide" id="add-record-label">
-      <div class="title-container">
-        <h2 class="title">Add a Record Label</h2>
-      </div>
-      <form
-        class="center-container"
-        action="{% url 'add_record_label' %}"
-        method="post"
-      >
-        {% csrf_token %} {{ record_company_form.as_p }}
-        <button class="btn" type="submit">Add</button>
-      </form>
-    </div>
-    <button id="add-albumbtn" data-type="Album" class="alt-btn add-btn">
+    <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">
+      Add Artist
+    </button>
+    <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">
+      Add Genre
+    </button>
+    <button id="add-album-btn" data-type="Album" class="alt-btn add-btn">
       Add Album
     </button>
-    <div class="width-100 hide" id="add-album">
-      <p class="help-info">
-        <i class="fas fa-arrow-up"></i> Do not see the right Data in the
-        Dropdown Menu? Just add any information you want here
-        <i class="fas fa-arrow-up"></i>
-      </p>
-      <div class="title-container">
-        <h2 class="title">Add an Album</h2>
-      </div>
-      <form
-        class="center-container"
-        action="{% url 'add_album' %}"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        {% csrf_token %} {{ album_form.as_p }}
-        <button class="btn" type="submit">Add</button>
-      </form>
-    </div>
     <div class="width-100" id="add-review">
       <div class="title-container">
         <p class="help-info">
@@ -87,6 +32,9 @@
           Dropdown Menu? Just add any information you want here
           <i class="fas fa-arrow-up"></i>
         </p>
+      </div>
+      <div class="title-container">
+        <h2 class="title">Add a Review</h2>
       </div>
       <form
         class="center-container"
@@ -118,6 +66,223 @@
         </div>
     </div>
   </div>
+
+  <!-- Add Artist form-->
+
+  <div class="container-dark form-div hide start-left" data-type="Artist">
+    <button
+      id="add-record-company-btn"
+      data-type="Record Label"
+      class="alt-btn add-btn"
+    >
+      Add Record Label
+    </button>
+    <button id="add-album-btn" data-type="Album" class="alt-btn add-btn">
+      Add Album
+    </button>
+    <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">
+      Add Genre
+    </button>
+    <button id="add-review-btn" data-type="Review" class="alt-btn add-btn">
+      Add Review
+    </button>
+    <div class="width-100" id="add-artist">
+      <div class="title-container">
+        <h2 class="title">Add an Artist</h2>
+      </div>
+      <form
+        class="center-container"
+        action="{% url 'add_artist' %}"
+        method="post"
+      >
+        {% csrf_token %} {{ artist_form.as_p }}
+        <button class="btn" type="submit">Add</button>
+      </form>
+    </div>
+    <p class="width-100 help-info">
+      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
+      Search here for the album info <i class="fas fa-arrow-down"></i>
+    </p>
+    <form class="search-form" id="search-info-form">
+      <label for="search" class="hide"> Search For Album Info </label>
+      <input id="search-data" name="search-data" />
+      <button id="search-data-btn" class="btn" type="submit">
+        Search for Info
+      </button>
+    </form>
+    <div class="width-100 center-container hide" id="spinner-div">
+      <i class="load-spinner fas fa-compact-disc"></i>
+    </div>
+    <div class="hide" id="search-results-container">
+        <div id="search-results">
+        <h3 class="search-title"></h3>
+        <p class="search-text"></p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Add Genre Form-->
+
+  <div class="container-dark form-div hide start-left" data-type="Genre">
+    <button
+      id="add-record-company-btn"
+      data-type="Record Label"
+      class="alt-btn add-btn"
+    >
+      Add Record Label
+    </button>
+    <button id="add-album-btn" data-type="Album" class="alt-btn add-btn">
+      Add Album
+    </button>
+    <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">
+      Add Artist
+    </button>
+    <button id="add-review-btn" data-type="Review" class="alt-btn add-btn">
+      Add Review
+    </button>
+    <div class="width-100" id="add-genre">
+      <div class="title-container">
+        <h2 class="title">Add a Genre</h2>
+      </div>
+      <form
+        class="center-container"
+        action="{% url 'add_genre' %}"
+        method="post"
+      >
+        {% csrf_token %} {{ genre_form.as_p }}
+        <button class="btn" type="submit">Add</button>
+      </form>
+    </div>
+    <p class="width-100 help-info">
+      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
+      Search here for the album info <i class="fas fa-arrow-down"></i>
+    </p>
+    <form class="search-form" id="search-info-form">
+      <label for="search" class="hide"> Search For Album Info </label>
+      <input id="search-data" name="search-data" />
+      <button id="search-data-btn" class="btn" type="submit">
+        Search for Info
+      </button>
+    </form>
+    <div class="width-100 center-container hide" id="spinner-div">
+      <i class="load-spinner fas fa-compact-disc"></i>
+    </div>
+    <div class="hide" id="search-results-container">
+        <div id="search-results">
+        <h3 class="search-title"></h3>
+        <p class="search-text"></p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Add Album Form -->
+
+  <div class="container-dark form-div hide start-left" data-type="Album">
+    <button
+      id="add-record-company-btn"
+      data-type="Record Label"
+      class="alt-btn add-btn"
+    >
+      Add Record Label
+    </button>
+    <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">
+      Add Genre
+    </button>
+    <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">
+      Add Artist
+    </button>
+    <button id="add-review-btn" data-type="Review" class="alt-btn add-btn">
+      Add Review
+    </button>
+    <div class="width-100" id="add-album">
+      <div class="title-container">
+        <h2 class="title">Add an Album</h2>
+      </div>
+      <form
+        class="center-container"
+        action="{% url 'add_album' %}"
+        method="post"
+      >
+        {% csrf_token %} {{ album_form.as_p }}
+        <button class="btn" type="submit">Add</button>
+      </form>
+    </div>
+    <p class="width-100 help-info">
+      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
+      Search here for the album info <i class="fas fa-arrow-down"></i>
+    </p>
+    <form class="search-form" id="search-info-form">
+      <label for="search" class="hide"> Search For Album Info </label>
+      <input id="search-data" name="search-data" />
+      <button id="search-data-btn" class="btn" type="submit">
+        Search for Info
+      </button>
+    </form>
+    <div class="width-100 center-container hide" id="spinner-div">
+      <i class="load-spinner fas fa-compact-disc"></i>
+    </div>
+    <div class="hide" id="search-results-container">
+        <div id="search-results">
+        <h3 class="search-title"></h3>
+        <p class="search-text"></p>
+        </div>
+    </div>
+  </div>
+
+  <!-- Add Record Label Form -->
+
+  <div class="container-dark form-div hide start-left" data-type="Record Label">
+    <button
+      id="add-album-btn"
+      data-type="Album"
+      class="alt-btn add-btn"
+    >
+      Add Album
+    </button>
+    <button id="add-genre-btn" data-type="Genre" class="alt-btn add-btn">
+      Add Genre
+    </button>
+    <button id="add-artist-btn" data-type="Artist" class="alt-btn add-btn">
+      Add Artist
+    </button>
+    <button id="add-review-btn" data-type="Review" class="alt-btn add-btn">
+      Add Review
+    </button>
+    <div class="width-100" id="add-record-label">
+      <div class="title-container">
+        <h2 class="title">Add a Record Label</h2>
+      </div>
+      <form
+        class="center-container"
+        action="{% url 'add_record_label' %}"
+        method="post"
+      >
+        {% csrf_token %} {{ record_company_form.as_p }}
+        <button class="btn" type="submit">Add</button>
+      </form>
+    </div>
+    <p class="width-100 help-info">
+      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
+      Search here for the album info <i class="fas fa-arrow-down"></i>
+    </p>
+    <form class="search-form" id="search-info-form">
+      <label for="search" class="hide"> Search For Album Info </label>
+      <input id="search-data" name="search-data" />
+      <button id="search-data-btn" class="btn" type="submit">
+        Search for Info
+      </button>
+    </form>
+    <div class="width-100 center-container hide" id="spinner-div">
+      <i class="load-spinner fas fa-compact-disc"></i>
+    </div>
+    <div class="hide" id="search-results-container">
+        <div id="search-results">
+        <h3 class="search-title"></h3>
+        <p class="search-text"></p>
+        </div>
+    </div>
+  </div>
+
   <br />
   <div class="top-margin">
     <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>

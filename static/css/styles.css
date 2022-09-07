@@ -317,17 +317,18 @@ input {
     width: 90%;
     margin-left: 5%;
     gap: 2rem;
+    z-index: 1;
 }
 
 #latest-reviews {
     grid-column-start: 1;
     grid-column-end: 3;
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 5px 5px 15px 5px #585858;
     border-radius: 25px;
     padding: 1rem .6rem;
     opacity: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 .latest-reviews-card {
@@ -465,14 +466,14 @@ input {
 /* Style for making the top profiles card flip */
 
 #top-profiles {
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.5);
     grid-column-start: 9;
     grid-column-end: 11;
     box-shadow: 5px 5px 15px 5px #585858;
     border-radius: 25px;
     padding: 1rem .6rem;
     opacity: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 .fade-in-sections {
@@ -549,7 +550,6 @@ input {
     width: 100%;
 }
 
-
 /* Style for the review list */
 
 .container-dark {
@@ -617,7 +617,7 @@ input {
 .card-text {
     width: 100%;
     text-align: start;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .card-body {
@@ -863,6 +863,15 @@ input {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
 

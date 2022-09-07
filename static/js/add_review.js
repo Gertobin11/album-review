@@ -27,6 +27,7 @@ album.children[0].innerText = 'Choose Album to Review'
 /* Adding event listeners to the buttons */
 
 showBtns = Array.from(document.getElementsByClassName('add-btn'))
+formDivs = Array.from(document.getElementsByClassName('form-div'))
 
 showBtns.forEach(btn => {
     btn.addEventListener('click', function(event) {
@@ -39,18 +40,24 @@ showBtns.forEach(btn => {
 * form when the button is clicked
 */
 const hideShowForm = (btn) => {
-    if (btn.innerText === 'Hide') {
-        btn.nextSibling.nextSibling.classList.add('hide')
-        let btnText = btn.getAttribute('data-type')
-        btn.innerText = `Add ${btnText}`
-    }
-    else {
-        console.log(btn, 'else')
-        btn.nextSibling.nextSibling.classList.remove('hide');
-        btn.innerText = 'Hide';
-        let albumCover = document.getElementById('file-upload-button')
-        console.log(albumCover)
-    }
+    formDivs.forEach((div) => {
+        if (btn.dataset.type === div.dataset.type) {
+            setTimeout(() => {
+                div.classList.remove('hide')
+                div.classList.add('fade-in-form')
+                setTimeout(() => {
+                    div.classList.remove('fade-in-form')
+                }, 500)
+            }, 500);
+        }
+        else {
+            div.classList.add('fade-out-form')
+            setTimeout(() => {
+                div.classList.add('hide')
+                div.classList.remove('fade-out-form')
+            }, 500)
+        }
+    })
 }
 
 /* From Wikipedia Official docs */
