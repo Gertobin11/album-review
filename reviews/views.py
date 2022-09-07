@@ -84,11 +84,12 @@ def search(request):
             search_category = form.cleaned_data['search_in']
             print(search_category)
             if search_category == 'group':
-                search_results = Album.objects.filter(artist__name__icontains=search)
-            elif search_category == 'title':
+                search_results = (Album.objects.filter(
+                                  artist__name__icontains=search))
                 search_results = Album.objects.filter(title__icontains=search)
             elif search_category == 'reviewer':
-                search_results = Album.objects.filter(review__creator__username__icontains=search)
+                search_results = (Album.objects.filter(
+                                  review__creator__username__icontains=search))
         search_count = len(search_results)
         attach_album_attributes(search_results, album_list)
     else:

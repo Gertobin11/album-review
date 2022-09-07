@@ -57,8 +57,9 @@ class ReviewForm(forms.ModelForm):
         model = Review
         exclude = ('creator', 'date_created_on', 'date_edited_on')
         widgets = {'title': forms.TextInput(
-                   attrs={'placeholder': 'Enter the Title of your Review'}),
-                   'content': forms.TextInput(
+                   attrs={'placeholder': 'Enter the Title of your Review',
+                          "cols": 6}),
+                   'content': forms.Textarea(
                     attrs={'placeholder': 'Enter your Review'}),
                    'rating': forms.NumberInput(
                     attrs={'placeholder': 'Rate the Album /10',
