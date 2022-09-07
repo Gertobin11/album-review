@@ -46,14 +46,20 @@
             </p>
         </div>
         <div id="check-reviews" class="main-cards">
-            <div class="card-fade"></div>
-            <a href="#" class="content-btn">See Our Reviews</a>
+            <div class="reviews-card-img card-fade"></div>
+            <a href="{% url 'review_list' %}" class="content-btn">See Our Reviews</a>
         </div>
-        <div id="check-albums">
-
+        <div id="check-albums" class="main-cards">
+            <div class="albums-card-img card-fade"></div>
+            <a href="{% url 'album_list' %}" class="content-btn">See Our Albums</a>
         </div>
-        <div id="add-review">
-
+        <div id="add-review-card" class="main-cards">
+            <div class="add-review-card-img card-fade"></div>
+            <a href="{% url 'add_review' %}" class="content-btn">Review An Album</a>
+        </div>
+        <div id="check-profiles" class="main-cards">
+            <div class="profiles-card-img card-fade"></div>
+            <a href="{% url 'profile_list' %}" class="content-btn">See Our Community</a>
         </div>
     </section>
 

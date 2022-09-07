@@ -206,6 +206,8 @@ input {
     gap: .5rem;
     animation: show-drop-nav .6s ease-in-out;
     transform-origin: top;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 5px 5px #000000;
 }
 
 .links-close {
@@ -325,6 +327,7 @@ input {
     border-radius: 25px;
     padding: 1rem .6rem;
     opacity: 0;
+    z-index: -1;
 }
 
 .latest-reviews-card {
@@ -384,6 +387,18 @@ input {
     position: relative;    
 }
 
+#check-albums {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    box-shadow: 5px 5px 15px 5px #585858;
+    background-color: black;
+    position: relative;    
+}
+
+.albums-card-img {
+    background-image: url("/media/album_covers/Wu-TangClanEntertheWu-Tangalbumcover.jpg");
+}
+
 .card-fade {
     border-radius: 25px;
     background-repeat: no-repeat;
@@ -392,7 +407,36 @@ input {
     height: 100%;
     background-color: black;
     opacity: 0.5;
+}
+
+.reviews-card-img {
     background-image: url("/media/album_covers/Alleyezonme.jpg");
+}
+
+#add-review-card {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    box-shadow: 5px 5px 15px 5px #585858;
+    background-color: black;
+    position: relative;
+}
+
+.add-review-card-img {
+    background-image: url("/media/album_covers/NirvanaNevermindalbumcover.jpg");
+}
+
+#check-profiles {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    box-shadow: 5px 5px 15px 5px #585858;
+    background-color: black;
+    position: relative;  
+}
+
+.profiles-card-img {
+    background-image: url("/media/album_covers/LikeAVirgin1984.png");
 }
 
 .content-btn {
@@ -428,6 +472,7 @@ input {
     border-radius: 25px;
     padding: 1rem .6rem;
     opacity: 0;
+    z-index: -1;
 }
 
 .fade-in-sections {
