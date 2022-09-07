@@ -7,9 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByClassName("top-profiles-card")
   );
 
+  let profileSection = document.getElementById('top-profiles')
+  let revewsSection = document.getElementById('latest-reviews')
+
+  /*
+  * Call functions to apply transititions
+  */
   applyTransition(profileCards)
   applyTransition(reviewCards)
-
+  applyFadeIn(profileSection)
+  applyFadeIn(revewsSection)
 });
 
 /*
@@ -23,4 +30,9 @@ function applyTransition(cards) {
     }, 200 + time);
     time += 200;
   });
+}
+
+
+function applyFadeIn(card) {
+  card.classList.add('fade-in-sections')
 }

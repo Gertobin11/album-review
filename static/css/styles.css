@@ -324,16 +324,18 @@ input {
     box-shadow: 5px 5px 15px 5px #585858;
     border-radius: 25px;
     padding: 1rem .6rem;
+    opacity: 0;
 }
 
 .latest-reviews-card {
     height: 150px !important;
-    transform: translateX(-400px);
+    transform:  translateX(-400px);
     transition: transform 0.8s;
 }
 
 .slide-in-card {
-    transform: translateX(0px) !important;
+    transform: rotateY(180deg) translateX(0px) !important;
+    transform-style: preserve-3d;
 }
 
 /* Style for main content cards */
@@ -360,6 +362,11 @@ input {
     text-align: center;
     font-family: 'Eczar', serif;
 }
+
+#welcome > h1 > span {
+    color: #EE4B2B;
+}
+
 #welcome > p {
     padding: .6rem;
 }
@@ -420,6 +427,11 @@ input {
     box-shadow: 5px 5px 15px 5px #585858;
     border-radius: 25px;
     padding: 1rem .6rem;
+    opacity: 0;
+}
+
+.fade-in-sections {
+    animation: 0.8s forwards fade-in !important;
 }
 
 .top-profiles-card {
@@ -456,7 +468,6 @@ input {
 }
 
 .card-back {
-    transform: rotateY(180deg);
     color: whitesmoke;
     display: flex;
     flex-direction: column;
@@ -478,6 +489,10 @@ input {
     -webkit-backface-visibility: hidden;
     background-color: rgba(19, 20, 20, 0.85);
     box-shadow: 3px 3px 7px 3px #000000;
+}
+
+.card-front {
+    transform: rotateY(180deg);
 }
 
 .card-body:hover .card-inner {
