@@ -3,46 +3,49 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByClassName("latest-reviews-card")
   );
 
-  let openMenu = 'closed'
+  const accountLinks = document.getElementById('account-links')
+
+  var openMenu = 'closed'
 
   let profileCards =  Array.from(
     document.getElementsByClassName("top-profiles-card")
   );
 
   let profileSection = document.getElementById('top-profiles')
-  let revewsSection = document.getElementById('latest-reviews')
+  let reviewsSection = document.getElementById('latest-reviews')
 
   /*
-* Move the profile and review cards back 
-* So the dropdown nav can appear
-* Also put them back up after a click elsewhere
-*/
+  * Move the profile and review cards back 
+  * So the dropdown nav can appear
+  * Also put them back up after a click elsewhere
+  */
 
-document.addEventListener('click', function(event) {
-  if (event.target.innerText === ' Account' && openMenu === 'closed' ) {
-    moveCardsBack(profileSection)
-    moveCardsBack(revewsSection)
-    openMenu = 'open'
-  }
+  document.addEventListener('click', function(event) {
+    if (event.target.innerText === ' Account' && openMenu === 'closed' ) {
+      moveCardsBack([profileSection, reviewsSection])
+      openMenu = 'open'
+    }
 
-  else if (event.target.innerText === ' Account' && openMenu === 'open' ) {
-    moveUpCards(profileSection)
-    moveUpCards(revewsSection)
+    else if (event.target.innerText === ' Account' && openMenu === 'open' ) {
+      moveUpCards([profileSection, reviewsSection])
+      openMenu = 'closed'
+    }
+
+    if (event.target.className === 'menu-btn__burger' && openMenu === 'closed' ) {
+      moveCardsBack([profileSection, reviewsSection])
+      openMenu = 'open'
+    }
+
+    else if (event.target.className === 'menu-btn__burger' && openMenu === 'open' ) {
+      moveUpCards([profileSection, reviewsSection])
+      openMenu = 'closed'
+    }
+  })
+
+  accountLinks.addEventListener('mouseleave', function() {
+    moveUpCards([profileSection, reviewsSection])
     openMenu = 'closed'
-  }
-
-  else if (event.target.className === 'menu-btn__burger' && openMenu === 'closed' ) {
-    moveCardsBack(profileSection)
-    moveCardsBack(revewsSection)
-    openMenu = 'open'
-  }
-
-  else {
-    moveUpCards(profileSection)
-    moveUpCards(revewsSection)
-    openMenu = 'closed'
-  }
-})
+  })
 
   /*
   * Call functions to apply transititions
@@ -50,7 +53,7 @@ document.addEventListener('click', function(event) {
   applyTransition(profileCards)
   applyTransition(reviewCards)
   applyFadeIn(profileSection)
-  applyFadeIn(revewsSection)
+  applyFadeIn(reviewsSection)
 });
 
 /*
@@ -70,10 +73,14 @@ function applyFadeIn(card) {
   card.classList.add('fade-in-sections')
 }
 
-function moveCardsBack(card) {
-  card.style.zIndex = "-1"
+function moveCardsBack(cards) {
+  for (let card of cards) {
+    card.style.zIndex = "-1"
+  }
 }
 
-function moveUpCards(card) {
-  card.style.zIndex = "1"
+function moveUpCards(cards) {
+  for (let card of cards) {
+    card.style.zIndex = "1"
+  }
 }

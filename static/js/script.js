@@ -95,11 +95,13 @@ menuBtn.addEventListener('click', handleBurgerClick)
 /* Set the Listener on the account element */
 account.addEventListener('click', handleAccountClick)
 
-/* Set the event listener for the dropdown nav o smaller screens */
+/* Hide dropdown nav when mouse leaves */
+accountLinks.addEventListener('mouseleave', handleAccountClick)
+
+/* Set the event listener for the dropdown nav on smaller screens */
 dropdownAccount.addEventListener('click', handleDropdownAccountClick)
 
 /* Code to apply animation to messages and auto close the container */
-
 let messages = Array.from(document.getElementsByClassName('message-card'))
 let sleep = 0;
 
@@ -117,5 +119,9 @@ messages.forEach((message) => {
 
 /* Show the Nav on page laod */
 document.addEventListener('DOMContentLoaded', function() {
+    header.classList.add('slide-down')
+})
+
+document.removeEventListener('DOMContentLoaded', function() {
     header.classList.add('slide-down')
 })
