@@ -4,6 +4,7 @@ const linksCopy = document.getElementsByClassName('links')[0].cloneNode(true)
 const nav = document.getElementsByClassName('main-nav')[0]
 const searchCopy = document.getElementsByClassName('search-form')[0].cloneNode(true)
 const account = document.getElementById('account')
+const accountChildren = Array.from(account.children)
 const accountLinks = document.getElementById('account-links')
 const header = document.getElementById('main-header')
 
@@ -39,6 +40,7 @@ const handleBurgerClick = () => {
         linksCopy.classList.remove('hide')
         burgerStatus = 'closed'
         nav.appendChild(linksCopy)
+        linksCopy.style.height = '100vh'
     }
     else if (burgerStatus === 'closed') {
         menuBtn.classList.remove('open')
@@ -70,7 +72,7 @@ const handleAccountClick = () => {
     }
 }
 
-/* Function to handle the acount click on smaller screens */
+/* Function to handle the account click on smaller screens */
 const handleDropdownAccountClick = () => {
     if (dropdownAccountStatus === 'closed') {
         dropdownAccountLinks.classList.remove('hide')

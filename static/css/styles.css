@@ -208,6 +208,7 @@ input {
     transform-origin: top;
     border-radius: 0 0 10px 10px;
     box-shadow: 2px 2px 5px 5px #000000;
+    z-index: 10;
 }
 
 .links-close {
@@ -477,7 +478,7 @@ input {
 }
 
 .fade-in-sections {
-    animation: 0.8s forwards fade-in !important;
+    animation: 0.8s forwards fade-in;
 }
 
 .top-profiles-card {
@@ -949,9 +950,9 @@ input {
         gap: 1rem;
         display: flex !important;
         flex-direction: column;
-        background-color: black;
+        background-color: rgba(19, 20, 20, 0.85);
         width: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
         position: fixed;
         top: 60px;
         left: 0;
@@ -986,6 +987,9 @@ input {
         font-size: 1.5rem;
         align-items: flex-end;
         width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        padding-right: inherit;
     }
 
     #account-links > a {
