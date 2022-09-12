@@ -908,9 +908,47 @@ input {
 
 /* Media queries */
 
+@media screen and (max-width: 1700px) {
+    #latest-reviews {
+        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-direction: row;
+    }
+
+    #latest-reviews h2 {
+        width: 100%;
+    }
+
+    #latest-reviews .flip-card {
+        width: 300px;
+    }
+
+    #main-content {
+        grid-column-start: 1;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
 @media screen and (max-width: 1145px) {
     .title {
         font-size: 1.8rem;
+    }
+
+    #main-content {
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    #top-profiles {
+        grid-column-start: 8;
+        grid-row-start: 1;
+        grid-row-end: 2;
     }
 }
 
