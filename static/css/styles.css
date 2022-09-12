@@ -922,7 +922,7 @@ input {
 
 @media screen and (max-width: 930px) {
     .card {
-        width: 250px;
+        width: 80%;
     }
 
     .link-span {
@@ -997,6 +997,17 @@ input {
         font-size: 1.1rem;
         text-decoration: none;
     } 
+}
+
+@media screen and (max-width: 798px) {
+    .review-section {
+        max-width: none;
+        padding: .8rem;
+    }
+    .container-dark {
+        width: 90%;
+        margin-left: 2.5%;
+    }
 }
 
 @media screen and (max-width: 670px) {
