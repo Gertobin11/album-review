@@ -3,6 +3,24 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByClassName("latest-reviews-card")
   );
 
+  const mainCards = Array.from(document.getElementById('main-content').children)
+
+  /*
+  * Function to animate the main content cards
+  * on Mobile and smaller screen devices
+  */
+
+  let n = 200
+  mainCards.forEach((card) => {
+    setTimeout(() => {
+      card.classList.add('slide-in-main-cards')
+    }, n + 100)
+    n += 150,
+    console.log(n)
+  })
+
+  console.log(mainCards)
+
   const accountLinks = document.getElementById('account-links')
 
   var openMenu = false
@@ -25,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   accountSpan.addEventListener('click', function() {
     !openMenu ?  (
-      moveCardsBack([profileSection, reviewsSection]),
+      moveCardsBack([profileSection, reviewsSection, ...mainCards]),
       openMenu = true) : (
-        moveUpCards([profileSection, reviewsSection]),
+        moveUpCards([profileSection, reviewsSection, ...mainCards]),
       openMenu = false
       )
   })
@@ -39,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   menuBtnBrgr.addEventListener('click', function() {
     !openMenu ?  (
-      moveCardsBack([profileSection, reviewsSection]),
+      moveCardsBack([profileSection, reviewsSection, ...mainCards]),
       openMenu = true) 
     : (
-        moveUpCards([profileSection, reviewsSection]),
+        moveUpCards([profileSection, reviewsSection, ...mainCards]),
         openMenu = false
       )
   })
