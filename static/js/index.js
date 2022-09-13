@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const accountLinks = document.getElementById('account-links')
 
-  var openMenu = 'closed'
+  var openMenu = false
 
   let profileCards =  Array.from(
     document.getElementsByClassName("top-profiles-card")
@@ -13,38 +13,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let profileSection = document.getElementById('top-profiles')
   let reviewsSection = document.getElementById('latest-reviews')
+  let accountSpan = document.getElementById('account-span')
+  let menuBtnBrgr = document.getElementsByClassName('menu-btn__burger')[0]
 
   /*
   * Move the profile and review cards back 
   * So the dropdown nav can appear
-  * Also put them back up after a click elsewhere
+  * Also put them back up after a the cursor leaves
+  * the dropdown
   */
 
-  document.addEventListener('click', function(event) {
-    if (event.target.innerText === ' Account' && openMenu === 'closed' ) {
-      moveCardsBack([profileSection, reviewsSection])
-      openMenu = 'open'
-    }
+  accountSpan.addEventListener('click', function() {
+    !openMenu ?  (
+      moveCardsBack([profileSection, reviewsSection]),
+      openMenu = true) : (
+        moveUpCards([profileSection, reviewsSection]),
+      openMenu = false
+      )
+  })
 
-    else if (event.target.innerText === ' Account' && openMenu === 'open' ) {
-      moveUpCards([profileSection, reviewsSection])
-      openMenu = 'closed'
-    }
+  /* 
+  * Hide the profile card behind the hamburd=ger menu 
+  * on smaller screens
+  */
 
-    if (event.target.className === 'menu-btn__burger' && openMenu === 'closed' ) {
-      moveCardsBack([profileSection, reviewsSection])
-      openMenu = 'open'
-    }
-
-    else if (event.target.className === 'menu-btn__burger' && openMenu === 'open' ) {
-      moveUpCards([profileSection, reviewsSection])
-      openMenu = 'closed'
-    }
+  menuBtnBrgr.addEventListener('click', function() {
+    !openMenu ?  (
+      moveCardsBack([profileSection, reviewsSection]),
+      openMenu = true) 
+    : (
+        moveUpCards([profileSection, reviewsSection]),
+        openMenu = false
+      )
   })
 
   accountLinks.addEventListener('mouseleave', function() {
     moveUpCards([profileSection, reviewsSection])
-    openMenu = 'closed'
+    openMenu = false
   })
 
   /*

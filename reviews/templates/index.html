@@ -83,10 +83,27 @@
                 </div>
             </div>
         </div>
+          <!-- Top profiles for mobile view-->
+        <a id="mobile-top-profiles" title="{{ profile.profile }}" class="profile-img hide" href="#">
+            {% if profile.profile.profile_pic %}
+            <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+            {% else %}
+            <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+            {% endif %}
+        </a>
         <br>
         <br>
         {% endfor %}
     </section>
+
+    <!-- Top profiles for mobile view-->
+    <a title="{{ profile.profile }}" class="profile-img hide" href="#">
+        {% if profile.profile.profile_pic %}
+        <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+        {% else %}
+        <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+        {% endif %}
+    </a>
 </main>
 {% block postloadjs %}
     <script src="{% static 'js/index.js' %}"></script>
