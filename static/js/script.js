@@ -114,7 +114,7 @@ messages.forEach((message) => {
         setTimeout(() => {
             message.remove()
         }, 1000)
-    }, 3500 + sleep)
+    }, 2500 + sleep)
 })
 
 /* Show the Nav on page laod */

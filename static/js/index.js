@@ -5,22 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const mainCards = Array.from(document.getElementById('main-content').children)
 
-  /*
-  * Function to animate the main content cards
-  * on Mobile and smaller screen devices
-  */
-
-  let n = 200
-  mainCards.forEach((card) => {
-    setTimeout(() => {
-      card.classList.add('slide-in-main-cards')
-    }, n + 100)
-    n += 150,
-    console.log(n)
-  })
-
-  console.log(mainCards)
-
   const accountLinks = document.getElementById('account-links')
 
   var openMenu = false
@@ -33,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let reviewsSection = document.getElementById('latest-reviews')
   let accountSpan = document.getElementById('account-span')
   let menuBtnBrgr = document.getElementsByClassName('menu-btn__burger')[0]
+  let messages = Array.from(document.getElementsByClassName('message-card'))
+  console.log(messages)
 
   /*
   * Move the profile and review cards back 
@@ -77,6 +63,34 @@ document.addEventListener("DOMContentLoaded", function () {
   applyTransition(reviewCards)
   applyFadeIn(profileSection)
   applyFadeIn(reviewsSection)
+
+   /*
+  * Function to animate the main content cards
+  * on Mobile and smaller screen devices
+  */
+
+  let n = 200
+  mainCards.forEach((card) => {
+    setTimeout(() => {
+      card.classList.add('slide-in-main-cards')
+    }, n + 100)
+    n += 150,
+    console.log(n)
+  })
+
+  /*
+  * Move the cards behind the messages if there are any 
+  * to display to the user
+  */
+  if (messages) {
+    moveCardsBack([profileSection, reviewsSection, ...mainCards])
+    openMenu = true
+    setTimeout(() => {
+      moveUpCards([profileSection, reviewsSection, ...mainCards])
+      openMenu = false
+    }, 3000)
+  }
+   
 });
 
 /*
