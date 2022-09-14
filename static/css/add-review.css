@@ -12,7 +12,7 @@
 }
 
 .help-info {
-    color: whitesmoke;
+    color: black;
     text-align: center;
 }
 
@@ -51,6 +51,20 @@
     justify-content: center;
     gap: 0;
     width: 100%;
+}
+
+#wiki-section {
+    margin: 0 2rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    padding: 2rem 0;
 }
 
 /* Animation while page loads results from API */

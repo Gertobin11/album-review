@@ -45,26 +45,6 @@
         <button class="btn" type="submit">Add</button>
       </form>
     </div>
-    <p class="width-100 help-info">
-      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
-      Search here for the album info <i class="fas fa-arrow-down"></i>
-    </p>
-    <form class="wiki-search-form" id="search-info-form">
-      <label for="search" class="hide"> Search For Album Info </label>
-      <input id="search-data" name="search-data" />
-      <button id="search-data-btn" class="btn" type="submit">
-        Search for Info
-      </button>
-    </form>
-    <div class="width-100 center-container hide" id="spinner-div">
-      <i class="load-spinner fas fa-compact-disc"></i>
-    </div>
-    <div class="hide" id="search-results-container">
-        <div id="search-results">
-        <h3 class="search-title"></h3>
-        <p class="search-text"></p>
-        </div>
-    </div>
   </div>
 
   <!-- Add Artist form-->
@@ -98,26 +78,6 @@
         {% csrf_token %} {{ artist_form.as_p }}
         <button class="btn" type="submit">Add</button>
       </form>
-    </div>
-    <p class="width-100 help-info">
-      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
-      Search here for the album info <i class="fas fa-arrow-down"></i>
-    </p>
-    <form class="wiki-search-form" id="search-info-form">
-      <label for="search" class="hide"> Search For Album Info </label>
-      <input id="search-data" name="search-data" />
-      <button id="search-data-btn" class="btn" type="submit">
-        Search for Info
-      </button>
-    </form>
-    <div class="width-100 center-container hide" id="spinner-div">
-      <i class="load-spinner fas fa-compact-disc"></i>
-    </div>
-    <div class="hide" id="search-results-container">
-        <div id="search-results">
-        <h3 class="search-title"></h3>
-        <p class="search-text"></p>
-        </div>
     </div>
   </div>
 
@@ -153,26 +113,6 @@
         <button class="btn" type="submit">Add</button>
       </form>
     </div>
-    <p class="width-100 help-info">
-      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
-      Search here for the album info <i class="fas fa-arrow-down"></i>
-    </p>
-    <form class="wiki-search-form" id="search-info-form">
-      <label for="search" class="hide"> Search For Album Info </label>
-      <input id="search-data" name="search-data" />
-      <button id="search-data-btn" class="btn" type="submit">
-        Search for Info
-      </button>
-    </form>
-    <div class="width-100 center-container hide" id="spinner-div">
-      <i class="load-spinner fas fa-compact-disc"></i>
-    </div>
-    <div class="hide" id="search-results-container">
-        <div id="search-results">
-        <h3 class="search-title"></h3>
-        <p class="search-text"></p>
-        </div>
-    </div>
   </div>
 
   <!-- Add Album Form -->
@@ -206,26 +146,6 @@
         {% csrf_token %} {{ album_form.as_p }}
         <button class="btn" type="submit">Add</button>
       </form>
-    </div>
-    <p class="width-100 help-info">
-      <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
-      Search here for the album info <i class="fas fa-arrow-down"></i>
-    </p>
-    <form class="wiki-search-form" id="search-info-form">
-      <label for="search" class="hide"> Search For Album Info </label>
-      <input id="search-data" name="search-data" />
-      <button id="search-data-btn" class="btn" type="submit">
-        Search for Info
-      </button>
-    </form>
-    <div class="width-100 center-container hide" id="spinner-div">
-      <i class="load-spinner fas fa-compact-disc"></i>
-    </div>
-    <div class="hide" id="search-results-container">
-        <div id="search-results">
-        <h3 class="search-title"></h3>
-        <p class="search-text"></p>
-        </div>
     </div>
   </div>
 
@@ -261,6 +181,10 @@
         <button class="btn" type="submit">Add</button>
       </form>
     </div>
+  </div>
+
+  <br />
+  <section id="wiki-section">
     <p class="width-100 help-info">
       <i class="fas fa-arrow-down"></i> Unsure of the correct Data to enter?
       Search here for the album info <i class="fas fa-arrow-down"></i>
@@ -281,14 +205,12 @@
         <p class="search-text"></p>
         </div>
     </div>
-  </div>
-
-  <br />
-  <div class="top-margin">
-    <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
-    <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
-  </div>
-  <br />
+    <div class="top-margin">
+      <a href="{% url 'album_list' %}" class="btn card-btn">Back to Albums</a>
+      <a href="{% url 'review_list' %}" class="btn alt-btn">Back to Reviews</a>
+    </div>
+    <br />
+  </section>
 </main>
 {% endblock %} {% block postloadjs %}
 <script src="{% static  'js/add_review.js' %}"></script>

@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   * Move the cards behind the messages if there are any 
   * to display to the user
   */
-  if (messages) {
+  if (messages?.length >= 1) {
     moveCardsBack([profileSection, reviewsSection, ...mainCards])
     openMenu = true
     setTimeout(() => {
