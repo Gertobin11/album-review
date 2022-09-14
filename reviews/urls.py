@@ -12,5 +12,6 @@ urlpatterns = [
     path('add-artist', views.add_artist, name='add_artist'),
     path('add-genre', views.add_genre, name='add_genre'),
     path('add-record-label', views.add_record_label, name='add_record_label'),
-    path('add-album', views.add_album, name='add_album')
+    path('add-album', views.add_album, name='add_album'),
+    path('edit-review/<int:review_id>', views.edit_review, name='edit_review'),
     ]

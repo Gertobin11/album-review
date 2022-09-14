@@ -146,6 +146,24 @@ def add_review(request):
     return render(request, template, context)
 
 
+def edit_review(request, review_id):
+    """ View to allow users to edit their own reviews """
+    initial_form = get_object_or_404(Review, pk=review_id)
+    print(initial_form.creator, request.user)
+    if request.user.id != initial_form.creator.id:
+        if request.user.is_superuser:
+            pass
+        else:
+            user_message(request, 'permission_denied', 'title')
+            return redirect('home')
+    review_form = ReviewForm(instance=initial_form)
+    template = 'edit_review.html'
+    context = {
+        'review_form': review_form
+    }
+    return render(request, template, context)
+
+
 @login_required
 def add_artist(request):
     """ Allows a user to add info about an artist """

@@ -36,3 +36,6 @@ def user_message(request, type, field):
     elif type == 'error':
         return messages.error(request, 'Something went wrong,'
                               'please try again')
+    elif type == 'permission_denied':
+        return messages.error(request, 'You do not have permission'
+                              'to access this page')
