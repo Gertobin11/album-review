@@ -11,9 +11,9 @@ def top_profiles(request):
             'profile': profile,
             'no_of_reviews': number_of_reviews(profile.user)
         })
-    # Sort and get the 5 profiles with most views
+    # Sort and get the 6 profiles with most views
     top_list = sorted(profile_list, key=lambda d: d['no_of_reviews'],
-                      reverse=True)[:5]
+                      reverse=True)[:6]
     context = {
         'top_profiles': top_list
     }

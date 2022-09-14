@@ -17,6 +17,7 @@
 }
 
 .profile-card {
+    padding-top: .6rem;
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #b3b3b3;
@@ -36,14 +37,15 @@
 .card-body {
     display: flex;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 0;
     height: auto;
 }
 
 .card-text {
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: .2rem;
+    padding: 0 .4rem;
 }
 
 .link {
@@ -55,7 +57,7 @@
     color: grey;
 }
 
-@media screen and (max-width: 1105px) {
+@media screen and (max-width: 1315px) {
     .main-grid {
         grid-template-columns: repeat(2, 1fr);
     }
