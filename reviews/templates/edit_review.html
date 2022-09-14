@@ -12,11 +12,11 @@
     
     <div class="width-100" id="add-review">
       <div class="title-container">
-        <h2 class="title">Edit {{ request.user }}'s review</h2>
+        <h2 class="title">Edit {{ initial_form.creator}}'s review</h2>
       </div>
       <form
         class="center-container"
-        action="{% url 'add_review' %}"
+        action="{% url 'edit_review' initial_form.id %}"
         method="post"
       >
         {% csrf_token %} {{ review_form.as_p }}

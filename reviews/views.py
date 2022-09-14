@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.defaulttags import register
 from django.contrib.auth.decorators import login_required
 from reviews.models import Review, Album
-from .utils import attach_album_attributes, user_message
+from .utils import attach_album_attributes, user_message, check_user_is_creator
 from .forms import (GenreForm, SearchForm, ArtistForm,
                     RecordCompanyForm, AlbumForm, ReviewForm)
 
@@ -149,8 +149,7 @@ def add_review(request):
 def edit_review(request, review_id):
     """ View to allow users to edit their own reviews """
     initial_form = get_object_or_404(Review, pk=review_id)
-    print(initial_form.creator, request.user)
-    if request.user.id != initial_form.creator.id:
+    if not check_user_is_creator(request.user.id, initial_form.creator.id):
         if request.user.is_superuser:
             pass
         else:
@@ -159,8 +158,16 @@ def edit_review(request, review_id):
     review_form = ReviewForm(instance=initial_form)
     template = 'edit_review.html'
     context = {
+        'initial_form': initial_form,
         'review_form': review_form
     }
+    if request.method == 'POST':
+        review_form = ReviewForm(data=request.POST, instance=initial_form)
+        if review_form.is_valid():
+            review_form.save()
+            return redirect('review', initial_form.id)
+        else:
+            user_message(request, 'error', 'title')
     return render(request, template, context)
 
 

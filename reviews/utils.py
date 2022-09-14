@@ -39,3 +39,7 @@ def user_message(request, type, field):
     elif type == 'permission_denied':
         return messages.error(request, 'You do not have permission'
                               'to access this page')
+
+
+def check_user_is_creator(user, creator):
+    return user == creator
