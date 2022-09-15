@@ -30,7 +30,12 @@ def attach_album_attributes(albums, album_list):
 
 def user_message(request, type, field):
     """ Add a level type message and get the name from the field """
-    name = request.POST.get(field)
+    if request.method == 'POST':
+        name = request.POST.get(field)
+    else:
+        name = field.title
+        print(name)
+
     if type == 'success':
         return messages.success(request, f'{name} has been added !')
     elif type == 'error':
@@ -39,6 +44,9 @@ def user_message(request, type, field):
     elif type == 'permission_denied':
         return messages.error(request, 'You do not have permission'
                               'to access this page')
+    elif type == 'deleted':
+        return messages.success(request, f"{name} has been "
+                                "successfully deleted")
 
 
 def check_user_is_creator(user, creator):

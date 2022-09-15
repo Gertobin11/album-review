@@ -146,6 +146,7 @@ def add_review(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_review(request, review_id):
     """ View to allow users to edit their own reviews """
     initial_form = get_object_or_404(Review, pk=review_id)
@@ -169,6 +170,21 @@ def edit_review(request, review_id):
         else:
             user_message(request, 'error', 'title')
     return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Allow User or superuser to delete a review """
+    review = get_object_or_404(Review, pk=review_id)
+    if not check_user_is_creator(request.user.id, review.creator.id):
+        if request.user.is_superuser:
+            pass
+        else:
+            user_message(request, 'permission_denied', 'title')
+            return redirect('home')
+    user_message(request, 'deleted', review)
+    review.delete()
+    return redirect('review_list')
 
 
 @login_required

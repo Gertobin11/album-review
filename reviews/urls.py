@@ -14,4 +14,6 @@ urlpatterns = [
     path('add-record-label', views.add_record_label, name='add_record_label'),
     path('add-album', views.add_album, name='add_album'),
     path('edit-review/<int:review_id>', views.edit_review, name='edit_review'),
+    path('delete-review/<int:review_id>', views.delete_review,
+         name='delete_review')
     ]
