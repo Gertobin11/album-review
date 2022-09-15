@@ -36,6 +36,12 @@
                 <div class="center-container top-margin">
                     <a href="{% url 'review' review.id %}" class="btn card-btn">Read Here</a>
                 </div>
+                {% if request.user == review.creator or request.user.is_superuser %}
+                <div>
+                    <a class="edit-link" href="{% url 'edit_review' review.id %}">Edit</a> | 
+                    <a class="delete-link" href="{% url 'delete_review' review.id %}">Delete</a>
+                </div>
+                {% endif %}
             </div>
         </div>
         {% endfor %}

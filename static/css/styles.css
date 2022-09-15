@@ -17,6 +17,23 @@ body {
     font-size: 2.5rem;
 }
 
+.delete-link {
+    color: #EE4B2B !important;
+    text-decoration: none;
+}
+
+.delete-link:hover {
+    text-decoration: underline;
+}
+
+.edit-link {
+    text-decoration: none;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}
+
 .home-link {
     text-decoration: none;
     width: 40%;
