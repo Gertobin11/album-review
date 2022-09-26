@@ -105,8 +105,8 @@ class AlbumTestCase(TestCase):
     def setUp(self):
         record = RecordCompany.objects.create(name='island')
         genre = Genre.objects.create(name='Dance')
-        prodigy = Artist.objects.create(name='The Prodigy',
-                                        date_formed='1992-01-01')
+        prodigy = Artist.objects.create(
+            name='The Prodigy', date_formed='1992-01-01')
         Album.objects.create(title='Fat of the land', year_of_release=1997,
                              artist=prodigy, genre=genre,
                              record_company=record)
@@ -158,12 +158,12 @@ class ReviewTestCase(TestCase):
     def setUp(self):
         record = RecordCompany.objects.create(name='island')
         genre = Genre.objects.create(name='Dance')
-        prodigy = Artist.objects.create(name='The Prodigy',
-                                        date_formed='1992-01-01')
-        fat_of_the_land = Album.objects.create(title='Fat of the land',
-                                               year_of_release=1997,
-                                               artist=prodigy, genre=genre,
-                                               record_company=record)
+        prodigy = Artist.objects.create(
+            name='The Prodigy', date_formed='1992-01-01')
+        fat_of_the_land = Album.objects.create(
+            title='Fat of the land', year_of_release=1997,
+            artist=prodigy, genre=genre,
+            record_company=record)
         creator = User.objects.create(username='admin')
         Review.objects.create(title='good', content='good', rating=10,
                               album=fat_of_the_land, creator=creator)
