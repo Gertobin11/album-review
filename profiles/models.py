@@ -7,6 +7,7 @@ from reviews.models import Genre
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+    banner_img = models.ImageField(upload_to='banner_pics', blank=True)
     first_name = models.CharField(max_length=50, null=True, blank=True)
     last_name = models.CharField(max_length=50, null=True, blank=True)
     favourite_genre = models.ForeignKey(Genre, on_delete=models.CASCADE,

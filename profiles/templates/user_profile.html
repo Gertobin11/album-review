@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
+{% endblock %}
+{% block content %}
+<section class="user-profile-grid">
+    <div class="image-wrapper">
+        {% if profile.banner_img %}
+            <img src="{{ MEDIA_URL }}{{ profile.banner_img.url }}" alt="Profile banner image">
+        {% else %}
+            <img src="{{ MEDIA_URL }}user-alt.png" alt="Profile banner image">
+        {% endif %}
+    </div>
+    <div class="user-banner">
+        <div class="banner-wrapper">
+            {% if profile.banner_img %}
+                <img src="{{ MEDIA_URL }}{{ profile.banner_img.uel }}" alt="Profile banner image">
+            {% else %}
+                <img src="{{ MEDIA_URL }}default-banner.jpeg" alt="Profile banner image">
+            {% endif %}
+        </div>
+    </div>
+    <div class="user-info">
+        <div class="user-profile-card">
+            <h3>{{ profile.user }}</h3>
+        </div>
+
+    </div>
+    <div class="user-content">
+
+    </div>
+
+</section>
+{% endblock %}
