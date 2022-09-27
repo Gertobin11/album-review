@@ -9,5 +9,4 @@ def latest_reviews(request):
     context = {
         'latest_reviews': sorted_reviews
     }
-    print(sorted_reviews)
     return context

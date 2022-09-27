@@ -25,7 +25,7 @@ def search_results(request):
 
 def review_list(request):
     """ Function to display the list of reviews left by users """
-    reviews = Review.objects.all()
+    reviews = Review.objects.all().order_by("-date_created_on")
     context = {
         'reviews': reviews
     }
@@ -139,6 +139,7 @@ def add_review(request):
             valid_form.creator = request.user
             valid_form.save()
             user_message(request, 'success', 'title')
+            return redirect('review_list')
         else:
             print(form.errors)
             user_message(request, 'error', 'title')
