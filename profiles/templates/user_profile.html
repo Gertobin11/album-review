@@ -48,8 +48,20 @@
 
     </div>
 
-    <section class="friends-section">
-        <h2>Friends</h2>
+    <section class="follows-section">
+        <h2>Follows</h2>
+        {% for person in follows %}
+        <div class="profile-card follows-card">
+            <div class="card-img">
+                {% if person.profile_pic %}
+                <img src="{{ MEDIA_URL }}{{ person.profile_pic }}" alt="Followers Profile Pic">
+                {% else %}
+                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                {% endif %}
+                <p>{{ person }}</p>
+            </div>
+        </div>
+        {% endfor %}
     </section>
 
 </section>

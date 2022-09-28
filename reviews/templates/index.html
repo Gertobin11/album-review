@@ -79,7 +79,8 @@
                 <div class="card-text no-padding card-back">
                     <p>{{ profile.profile.user }}</p>
                     <p>Reviews: {{ profile.no_of_reviews }}</p>
-                    <a href="#">View</a>
+                    <a href="{% url 'user_profile' profile.profile.id %}">View</a>
+                    <a href="{% url 'follow' profile.profile.id %}">Follow</a>
                 </div>
             </div>
         </div>
