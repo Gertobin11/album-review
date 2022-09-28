@@ -5,7 +5,8 @@ from reviews.models import Genre
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='profile')
     profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
     followers = models.ManyToManyField(User, blank=True,
                                        related_name='followed')

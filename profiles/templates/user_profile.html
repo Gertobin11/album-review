@@ -35,12 +35,20 @@
             <div class="info-div">
                 <p>Joined: <span>{{ time_since_joined }}</span></p>
             </div>
+            <h2>Followers</h2>
+            <ul class="recently-viewed">
+                {% for follower in followers %}
+                    <li><a href="{% url 'user_profile' follower.profile.all.first.id %}">{{ follower }}</a></li>
+                {% endfor %}
+            </ul>
+            {% if request.user == profile.user %}
             <h2>Last 5 viewed albums</h2>
             <ul class="recently-viewed">
                 {% for id, name in recently_viewed %}
                     <li><a href="{% url 'album_view' id %}">{{ name }}</a></li>
                 {% endfor %}
             </ul>
+            {% endif %}
         </div>
 
     </div>

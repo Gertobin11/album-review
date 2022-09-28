@@ -32,9 +32,7 @@ def user_profile(request, profile_id):
     no_of_reviews = number_of_reviews(profile.user)
     profile_form = EditProfileForm(instance=profile)
     follows = list(profile.user.followed.all())
-    print(follows)
-    for person in profile.followers.all():
-        print(person)
+    followers = profile.followers.all()
     context = {
         'profile': profile,
         'no_of_reviews': no_of_reviews,
@@ -42,7 +40,8 @@ def user_profile(request, profile_id):
         'days_joined': days_joined,
         'time_since_joined': time_since_joined,
         'recently_viewed': recently_viewed,
-        'follows': follows
+        'follows': follows,
+        'followers': followers
     }
     template = 'user_profile.html'
     return render(request, template, context)
