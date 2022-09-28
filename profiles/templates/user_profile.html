@@ -36,6 +36,11 @@
                 <p>Joined: <span>{{ time_since_joined }}</span></p>
             </div>
             <h2>Last 5 viewed albums</h2>
+            <ul class="recently-viewed">
+                {% for id, name in recently_viewed %}
+                    <li><a href="{% url 'album_view' id %}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
 
     </div>

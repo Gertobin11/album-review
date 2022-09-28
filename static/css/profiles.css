@@ -145,6 +145,24 @@
     font-size: 1.1rem;
 }
 
+.recently-viewed {
+    padding: 1rem;
+}
+.recently-viewed li {
+    color: whitesmoke;
+    padding: .2rem 0;
+}
+
+.recently-viewed > li > a {
+    color: gold;
+    text-decoration: none;
+}
+
+.recently-viewed > li > a:hover {
+    color: #EE4B2B;
+    text-decoration: underline;
+}
+
 .user-content {
     grid-column-start: 3;
     grid-column-end: 11;

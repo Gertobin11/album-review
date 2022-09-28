@@ -25,6 +25,7 @@ def profiles(request):
 def user_profile(request, profile_id):
     """ Return a single user profile """
     profile = get_object_or_404(Profile, pk=profile_id)
+    recently_viewed = request.session.get('viewed_albums', [])
     days_joined = days_since_joined(profile.created_on)
     time_since_joined = naturaltime(profile.created_on)
     no_of_reviews = number_of_reviews(profile.user)
@@ -34,7 +35,8 @@ def user_profile(request, profile_id):
         'no_of_reviews': no_of_reviews,
         'profile_form': profile_form,
         'days_joined': days_joined,
-        'time_since_joined': time_since_joined
+        'time_since_joined': time_since_joined,
+        'recently_viewed': recently_viewed
     }
     template = 'user_profile.html'
     return render(request, template, context)

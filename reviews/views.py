@@ -50,6 +50,15 @@ def album_list(request):
 def album_view(request, id):
     """ Display individual reviews"""
     album = get_object_or_404(Album, pk=id)
+    # Insert the albums viewed into local storage
+    if request.user.is_authenticated:
+        viewed_albums = request.session.get('viewed_albums', [])
+        viewed_album = [album.id, album.title]
+        if viewed_album in viewed_albums:
+            viewed_albums.remove(viewed_album)
+        viewed_albums.insert(0, viewed_album)
+        viewed_albums = viewed_albums[:5]
+        request.session['viewed_albums'] = viewed_albums
     reviews = album.review_set.all()
     context = {
         'album': album,
