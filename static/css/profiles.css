@@ -61,65 +61,61 @@
 
 .user-profile-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     min-height: 95vh;
     gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 0 2rem;
 }
 
 .user-banner {
-    grid-column-start: 3;
-    grid-column-end: 9;
-    grid-row-end: 2;
-    max-height: 300px;
-}
-
-.banner-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 0 0 0 25%;
-}
-
-.banner-wrapper > img {
-    object-fit: cover;
-    width: 100%;
-    max-height: 100%;
-
-}
-
-
-.image-wrapper {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-end: 2;
     display: flex;
     justify-content: center;
-    background: whitesmoke;
-    box-shadow: 5px 5px 15px 5px #b3b3b3;
-    border-radius: 0 0 25% 0;
+    grid-column-start: 3;
+    grid-column-end: 11;
+    grid-row-end: 2;
+    background-color: gold;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px 5px #585858;
+    padding: .8rem;
+}
+
+.user-banner > h1 {
+    font-family: 'Eczar', serif;
+    font-size: 2.2rem;
+}
+
+.image-wrapper {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .image-wrapper > img {
-    width: 60%;
+    max-height: 200px;
+    background: whitesmoke;
+    box-shadow: 5px 5px 15px 5px #b3b3b3;
+    border-radius: 10%;
 }
 
 .user-info {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 9;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 2rem;
     background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 0 25% 0 0;
+    border-radius: 10%;
     box-shadow: 5px 5px 15px 5px #000000;
-    padding: 2rem 0;
-    border: 4px solid gold;
+    padding: 1rem;
 }
 
 .user-profile-card {
+    margin-top: 3rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -127,13 +123,56 @@
     color: whitesmoke;
 }
 
+.user-profile-card > h2 {
+    color: gold;
+    font-family: 'Eczar', serif;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+.info-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-div > p {
+    color: whitesmoke;
+}
+
+.info-div > p > span {
+    color: gold;
+    font-family: 'Eczar', serif;
+    font-size: 1.1rem;
+}
+
 .user-content {
     grid-column-start: 3;
-    grid-column-end: 9;
+    grid-column-end: 11;
     grid-row-start: 2;
-    grid-row-end: 4;
-    background-color: greenyellow;
-    border-radius: 25% 0 0 0;
+    grid-row-end: 8;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    
+}
+
+.friends-section {
+    grid-column-start: 11;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 8;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10%;
+    box-shadow: 5px 5px 15px 5px #000000;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friends-section > h2 {
+    color: gold;
+    font-family: 'Eczar', serif;
+    font-size: 1.8rem;
 }
 
 @media screen and (max-width: 1315px) {
