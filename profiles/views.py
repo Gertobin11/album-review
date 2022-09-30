@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.contrib import messages
+from reviews.models import Review
 from .models import Profile
 from .utils import number_of_reviews, days_since_joined
 from .forms import EditProfileForm
@@ -33,6 +34,8 @@ def user_profile(request, profile_id):
     profile_form = EditProfileForm(instance=profile)
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
+    user_reviews = Review.objects.filter(creator=profile.user)
+    print(user_reviews)
     context = {
         'profile': profile,
         'no_of_reviews': no_of_reviews,
@@ -41,7 +44,8 @@ def user_profile(request, profile_id):
         'time_since_joined': time_since_joined,
         'recently_viewed': recently_viewed,
         'follows': follows,
-        'followers': followers
+        'followers': followers,
+        'user_reviews': user_reviews
     }
     template = 'user_profile.html'
     return render(request, template, context)

@@ -4,9 +4,9 @@
     <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
 {% endblock %}
 {% block content %}
-<section class="user-profile-grid">
+<main class="user-profile-grid">
     <div class="user-banner">
-        <h1>Welcome to {{ user }} Profile </h1>
+        <h1>Welcome to {{ profile.user }}'s Profile </h1>
     </div>
     <div class="user-info">
         <div class="image-wrapper">
@@ -16,7 +16,7 @@
                 <img src="{{ MEDIA_URL }}user-alt.png" alt="Profile banner image">
             {% endif %}
         </div>
-        <div class="user-profile-card">
+        <section class="user-profile-card">
             <div class="info-div">
                 <p>Username :<span>{{ profile.user }}</span></p>
             </div>
@@ -49,28 +49,61 @@
                 {% endfor %}
             </ul>
             {% endif %}
+        </section>
+
+    </div>
+    <section class="user-content">
+        <div class="content-select">
+            <button class="content-button alt-btn">
+                Reviews
+            </button>
+            <button class="content-button alt-btn">
+                Followers Reviews
+            </button>
+            <button class="content-button alt-btn">
+                Statistics
+            </button>
+        </div>
+        <h2>{{ profile.user }}'s Reviews</h2>
+        <div class="user-content-grid">
+            {% for review in user_reviews %}
+                <a class="review-link" href="{% url 'review' review.id %}">
+                    <div class="content-card">
+                        {% if review.album.album_cover %}
+                            <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                        {% endif %}
+                        <div class="content-card-body">
+                            <p>{{ review.title }}</p>
+                            <p>{{ review }}</p>
+                            <p>Rated: {{ review.rating }}</p>
+                            <p>{{ review.date_created_on }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
 
-    </div>
-    <div class="user-content">
-
-    </div>
+    </section>
 
     <section class="follows-section">
         <h2>Follows</h2>
         {% for person in follows %}
-        <div class="profile-card follows-card">
-            <div class="card-img">
-                {% if person.profile_pic %}
-                <img src="{{ MEDIA_URL }}{{ person.profile_pic }}" alt="Followers Profile Pic">
-                {% else %}
-                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
-                {% endif %}
-                <p>{{ person }}</p>
-            </div>
-        </div>
+            <a class="follow-link" href="{% url 'user_profile' person.id %}">
+                <div class="profile-card follows-card">
+                    <div class="card-img">
+                        {% if person.profile_pic %}
+                        <img src="{{ MEDIA_URL }}{{ person.profile_pic }}" alt="Followers Profile Pic">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                        {% endif %}
+                        <p>{{ person }}</p>
+                    </div>
+                </div>
+            </a>
         {% endfor %}
     </section>
 
-</section>
+</main>
 {% endblock %}
