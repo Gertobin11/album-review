@@ -17,6 +17,14 @@
             {% endif %}
         </div>
         <section class="user-profile-card">
+            {% if request.user != profile.user and request.user.is_authenticated %}
+                {% if request.user in profile.followers.all %}
+                <a class="alt-btn" href="{% url 'follow' profile.id %}">Unfollow</a>
+                {% else %}
+                <a href="{% url 'follow' profile.id %}" class="alt-btn">Follow</a>
+                {% endif %}
+            {% endif %}
+                
             <div class="info-div">
                 <p>Username :<span>{{ profile.user }}</span></p>
             </div>

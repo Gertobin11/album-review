@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class="link" href='#'>Check out my profile</a>
+                <a class="link" href='{% url "user_profile" profile.profile.id %}'>Check out my profile</a>
             </div>
         </div>
     {% endfor %}
