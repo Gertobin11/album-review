@@ -54,36 +54,61 @@
     </div>
     <section class="user-content">
         <div class="content-select">
-            <button class="content-button alt-btn">
+            <button class="content-button alt-btn" data-type="user">
                 Reviews
             </button>
-            <button class="content-button alt-btn">
+            <button class="content-button alt-btn" data-type="followers">
                 Followers Reviews
             </button>
             <button class="content-button alt-btn">
                 Statistics
             </button>
         </div>
-        <h2>{{ profile.user }}'s Reviews</h2>
-        <div class="user-content-grid">
-            {% for review in user_reviews %}
-                <a class="review-link" href="{% url 'review' review.id %}">
-                    <div class="content-card">
-                        {% if review.album.album_cover %}
-                            <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
-                        {% else %}
-                            <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
-                        {% endif %}
-                        <div class="content-card-body">
-                            <p>{{ review.title }}</p>
-                            <p>{{ review }}</p>
-                            <p>Rated: {{ review.rating }}</p>
-                            <p>{{ review.date_created_on }}</p>
+        <div class="menu-item" data-type="user">
+            <h2>{{ profile.user }}'s Reviews</h2>
+            <div class="user-content-grid">
+                {% for review in user_reviews %}
+                    <a class="review-link" href="{% url 'review' review.id %}">
+                        <div class="content-card">
+                            {% if review.album.album_cover %}
+                                <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                            {% endif %}
+                            <div class="content-card-body">
+                                <p>{{ review.title }}</p>
+                                <p>{{ review }}</p>
+                                <p>Rated: {{ review.rating }}</p>
+                                <p>{{ review.date_created_on }}</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            {% endfor %}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
+        <div class="menu-item fade" data-type="followers">
+            <h2>My Followers Reviews</h2>
+            <div class="user-content-grid">
+                {% for review in followers_reviews %}
+                    <a class="review-link" href="{% url 'review' review.id %}">
+                        <div class="content-card">
+                            {% if review.album.album_cover %}
+                                <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default album image">
+                            {% endif %}
+                            <div class="content-card-body">
+                                <p>{{ review.title }}</p>
+                                <p>{{ review }}</p>
+                                <p>Rated: {{ review.rating }}</p>
+                                <p>{{ review.date_created_on }}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+     
 
     </section>
 
@@ -106,4 +131,8 @@
     </section>
 
 </main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/profiles.js' %}"></script>
 {% endblock %}

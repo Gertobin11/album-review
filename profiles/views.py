@@ -35,7 +35,7 @@ def user_profile(request, profile_id):
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
     user_reviews = Review.objects.filter(creator=profile.user)
-    print(user_reviews)
+    followers_reviews = Review.objects.filter(creator__in=profile.followers.all())
     context = {
         'profile': profile,
         'no_of_reviews': no_of_reviews,
@@ -45,7 +45,8 @@ def user_profile(request, profile_id):
         'recently_viewed': recently_viewed,
         'follows': follows,
         'followers': followers,
-        'user_reviews': user_reviews
+        'user_reviews': user_reviews,
+        'followers_reviews': followers_reviews
     }
     template = 'user_profile.html'
     return render(request, template, context)

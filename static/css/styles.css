@@ -92,6 +92,10 @@ input {
     border-radius: 10px 0 0 10px;
 }
 
+.fade {
+    opacity: 0;
+}
+
 .hide {
     display: none !important;
 }
