@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.contrib import messages
-from reviews.models import Review
+from reviews.models import Review, Genre
 from plotly.offline import plot
 import plotly.graph_objs as graphs
 from .models import Profile
@@ -36,10 +36,27 @@ def user_profile(request, profile_id):
     profile_form = EditProfileForm(instance=profile)
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
+    followers_reviews = (Review.objects.filter(
+                         creator__in=profile.followers.all()))
     user_reviews = Review.objects.filter(creator=profile.user)
     print(reviews_per_genre(profile.user))
+
+    # Getting data for the chart
+    user_reviews_by_genre = reviews_per_genre(profile.user)
+    genres = [x.name for x in Genre.objects.all()]
+    print(genres)
+    genres_reviewed = [0 for _ in range(len(Genre.objects.all()))]
+    for genre_reviews in user_reviews_by_genre:
+        list_index = genre_reviews['album__genre'] - 1
+        genres_reviewed[list_index] = genre_reviews['review_count']
+
+    # Create the chart
     figure = graphs.Figure()
-    followers_reviews = Review.objects.filter(creator__in=profile.followers.all())
+    scatter = graphs.Scatter(x=genres, y=genres_reviewed)
+    figure.add_trace(scatter)
+    figure.update_layout(xaxis_title="Genre", yaxis_title="No. of Reviews")
+    plot_html = plot(figure, output_type='div')
+
     context = {
         'profile': profile,
         'no_of_reviews': no_of_reviews,
@@ -50,7 +67,8 @@ def user_profile(request, profile_id):
         'follows': follows,
         'followers': followers,
         'user_reviews': user_reviews,
-        'followers_reviews': followers_reviews
+        'followers_reviews': followers_reviews,
+        'reviews_per_genre': plot_html
     }
     template = 'user_profile.html'
     return render(request, template, context)

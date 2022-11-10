@@ -16,6 +16,10 @@ def days_since_joined(joined):
 
 
 def reviews_per_genre(username):
+    """
+        Returns a queryset of the FK of the Genre and the amount of reviews
+        the user has in the Genre
+    """
     user_reviews = (Review.objects.filter(
                     creator=username).values(
                     'album__genre').annotate(review_count=Count('title')))
