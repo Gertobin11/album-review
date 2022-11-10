@@ -142,6 +142,7 @@
         class="center-container"
         action="{% url 'add_album' %}"
         method="post"
+        enctype="multipart/form-data"
       >
         {% csrf_token %} {{ album_form.as_p }}
         <button class="btn" type="submit">Add</button>

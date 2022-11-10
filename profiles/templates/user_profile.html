@@ -68,7 +68,7 @@
             <button class="content-button alt-btn" data-type="followers">
                 Followers Reviews
             </button>
-            <button class="content-button alt-btn">
+            <button class="content-button alt-btn" data-type="stats">
                 Statistics
             </button>
         </div>
@@ -115,6 +115,14 @@
                     </a>
                 {% endfor %}
             </div>
+        </div>
+        <div class="menu-item" data-type="stats">
+            <h2>{{ profile.user }}'s Statistics</h2>
+            <div class="chart-container">
+                <div class="chart1"></div>
+                <div class="chart2"></div>
+            </div>
+
         </div>
      
 

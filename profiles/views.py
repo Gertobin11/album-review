@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.contrib import messages
 from reviews.models import Review
+from plotly.offline import plot
+import plotly.graph_objs as graphs
 from .models import Profile
-from .utils import number_of_reviews, days_since_joined
+from .utils import number_of_reviews, days_since_joined, reviews_per_genre
 from .forms import EditProfileForm
 
 
@@ -35,6 +37,8 @@ def user_profile(request, profile_id):
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
     user_reviews = Review.objects.filter(creator=profile.user)
+    print(reviews_per_genre(profile.user))
+    figure = graphs.Figure()
     followers_reviews = Review.objects.filter(creator__in=profile.followers.all())
     context = {
         'profile': profile,
