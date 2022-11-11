@@ -303,6 +303,7 @@
     width: 100%;
     grid-column-start: 1;
     grid-column-end: 13;
+    padding: 2rem;
 }
 
 .profile-form h2 {
@@ -367,5 +368,34 @@
         grid-template-columns: 1fr;
         width: 100%;
         margin: 0%;
+    }
+
+    .follows-section {
+        width: 100%;
+    }
+
+    .follow-link {
+        display: flex;
+        justify-content: center;
+    }
+
+    .user-info {
+        width: 100%;
+    }
+
+    .profile-form {
+        width: 100%;
+    }
+
+    .user-content {
+        width: 100%;
+    }
+
+    .user-content-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .user-profile-grid {
+        padding: 0;
     }
 }
