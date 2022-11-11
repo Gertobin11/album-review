@@ -11,6 +11,10 @@ body {
     background-size: cover;
 }
 
+main {
+    min-height: 90vh;
+}
+
 .title {
     font-family: 'Eczar', serif;
     color: gold;
@@ -755,6 +759,12 @@ input {
     max-width: 30%;
 }
 
+.creator-link {
+    color: gold;
+    font-family: 'Eczar', serif;
+    text-decoration: none;
+}
+
 /* Styles for the search page */
 
 .search-results {
@@ -763,6 +773,12 @@ input {
     width: 100%;
     margin: 2rem;
     text-align: start;
+}
+
+.display-body {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 
@@ -887,6 +903,32 @@ input {
 
 .auth-link:hover {
     color: gold;
+}
+
+/* Footer styles */
+
+footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4rem;
+    margin-top: 1.5rem;
+    padding: .8rem;
+    position: absolute;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    padding: .8rem;
+}
+
+.social-links > a {
+    color: gold;
+    font-size: 1.3rem;
 }
 
 /* Animation */
@@ -1107,6 +1149,7 @@ input {
         display: flex;
         max-width: 100%;
     }
+
 }
 
 @media screen and (max-width: 670px) {
