@@ -72,7 +72,7 @@
                 Statistics
             </button>
         </div>
-        <div class="menu-item" data-type="user">
+        <div class="menu-item hide fade" data-type="user">
             <h2>{{ profile.user }}'s Reviews</h2>
             <div class="user-content-grid">
                 {% for review in user_reviews %}
@@ -94,7 +94,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="menu-item fade" data-type="followers">
+        <div class="menu-item hide fade" data-type="followers">
             <h2>My Followers Reviews</h2>
             <div class="user-content-grid">
                 {% for review in followers_reviews %}
@@ -116,7 +116,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="menu-item hide" data-type="stats">
+        <div class="menu-item" data-type="stats">
             <h2>{{ profile.user }}'s Statistics</h2>
             <div class="chart-container">
                 <div class="chart1">
@@ -124,12 +124,29 @@
                         {{ reviews_per_genre }}
                     {% endautoescape %}
                 </div>
-                <div class="chart2"></div>
+                <div class="chart2">
+                    {% autoescape off %}
+                    {{ ratings_per_album }}
+                {% endautoescape %}
+                </div>
             </div>
 
         </div>
      
 
+    </section>
+
+    <section class="profile-form">
+        <h2 class="logo">Edit Profile Details</h2>
+        {% if request.user == profile.user %}
+        <form enctype="multipart/form-data" method="post" class="center-container">
+            {% csrf_token %}
+            {{ profile_form.as_p }}
+            <input type="submit" value="Update" class="alt-btn">
+        </form>
+        {% else %}
+        <p>Only Profile owners can edit their profile</p>
+        {% endif %}
     </section>
 
     <section class="follows-section">

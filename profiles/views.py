@@ -38,7 +38,7 @@ def user_profile(request, profile_id):
     no_of_reviews = number_of_reviews(profile.user)
     profile_form = EditProfileForm(instance=profile)
 
-    # Data for the followers section 
+    # Data for the followers section
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
 
@@ -53,10 +53,21 @@ def user_profile(request, profile_id):
 
     # Create the chart
     figure = graphs.Figure()
-    scatter = graphs.Scatter(x=genres, y=genres_reviewed)
+    scatter = graphs.Scatter(x=genres, y=genres_reviewed, name='Reviews Per Genre')
     figure.add_trace(scatter)
     figure.update_layout(xaxis_title="Genre", yaxis_title="No. of Reviews")
     plot_html = plot(figure, output_type='div')
+
+    # Get the reviews and ratings
+    albums_reviewed = [x.album.title for x in user_reviews]
+    album_ratings = [x.rating for x in user_reviews]
+
+    # Create the ratings chart
+    figure1 = graphs.Figure()
+    bar = graphs.ColorBar(x=albums_reviewed, y=album_ratings, name='Album Ratings')
+    figure1.add_trace(bar)
+    figure1.update_layout(xaxis_title="Album", yaxis_title="Ratings")
+    plot1_html = plot(figure1, output_type='div')
 
     context = {
         'profile': profile,
@@ -69,7 +80,8 @@ def user_profile(request, profile_id):
         'followers': followers,
         'user_reviews': user_reviews,
         'followers_reviews': followers_reviews,
-        'reviews_per_genre': plot_html
+        'reviews_per_genre': plot_html,
+        'ratings_per_album': plot1_html
     }
     template = 'user_profile.html'
     return render(request, template, context)

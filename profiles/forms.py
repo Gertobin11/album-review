@@ -4,5 +4,5 @@ from .models import Profile
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
-        exclude = ('user',)
+        fields = ['first_name', 'last_name', 'favourite_genre', 'profile_pic']
         model = Profile

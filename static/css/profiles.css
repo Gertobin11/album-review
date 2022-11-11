@@ -79,11 +79,14 @@
     border-radius: 15px;
     box-shadow: 5px 5px 15px 5px #585858;
     padding: .8rem;
+    width: 100%;
 }
 
 .user-banner > h1 {
     font-family: 'Eczar', serif;
     font-size: 2.2rem;
+    width: 100%;
+    text-align: center;
 }
 
 .image-wrapper {
@@ -278,24 +281,83 @@
 }
 
 .chart-container {
-    display: grid;
-    grid-template-columns: 2;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
+    align-items: center;
+    padding: 1rem;
 }
 
 .chart1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
+    width: 100%;
 }
 
 .chart2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
+    width: 100%;
+}
+
+.profile-form {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 13;
+}
+
+.profile-form h2 {
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 0;
+}
+
+.center-container {
+    gap: 1rem;
+}
+
+.center-container > p {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.center-container > p > * {
+    height: 2rem;
+    width: 50%;
+    font-size: 1.2rem;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 1315px) {
     .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .user-profile-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .follows-section {
+        width: 30%;
+    }
+
+    .profile-form {
+        width: 65%;
+    }
+
+    .user-content {
+        width: 70%;
+    }
+
+    .user-info {
+        width: 25%;
+    }
+
+    .user-content-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
