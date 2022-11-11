@@ -50,11 +50,11 @@
                     <i class="fas fa-user"></i><i class="fas fa-caret-down"> </i><span id="account-span" class="link-span"> Account</span>
                     <div id="account-links">
                         <a href="{% url 'profile_list' %}">
-                            Profiles
+                            All Profiles
                         </a>
                         {% if user.is_authenticated %}
                         <a href="{% url 'user_profile' request.user.profile.all.first.id %}">
-                            Profile
+                           My Profile
                         </a>
                         <a href="{% url 'account_logout' %}">
                             Logout

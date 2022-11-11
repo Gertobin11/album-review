@@ -703,6 +703,14 @@ input {
 }
 
 /* Style for Album view */
+.album-image {
+    max-width: 50%;
+}
+
+.album-image > img {
+    max-width: 100%;
+    object-fit: cover;
+}
 
 .album-wrapper {
     display: flex;
@@ -741,6 +749,10 @@ input {
 
 .title-span {
     font-size: 1.4rem;
+}
+
+.review-album-section {
+    max-width: 30%;
 }
 
 /* Styles for the search page */
@@ -1088,6 +1100,12 @@ input {
 
     #latest-reviews {
         display: none;
+    }
+
+    .review-album-section {
+        width: 100%;
+        display: flex;
+        max-width: 100%;
     }
 }
 

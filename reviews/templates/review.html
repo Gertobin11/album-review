@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="review-section">
-            <p class="title">{{ review.title|title }} <span class="title-span"> by {{ review.creator }}</span></p>
+            <p class="title">{{ review.title|title }} <span class="title-span"> by <a href="{% url 'user_profile' review.creator.profile.all.first.id %}">{{ review.creator }}</a></span></p>
             <p>{{ review.date_created_on }}</p>
             <br>
             <p>{{ review.content }}</p>
