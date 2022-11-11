@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from django.contrib import messages
-from reviews.models import Review, Genre
+from reviews.models import Review
 from plotly.offline import plot
 import plotly.graph_objs as graphs
 from .models import Profile
-from .utils import number_of_reviews, days_since_joined, reviews_per_genre
+from .utils import (number_of_reviews, days_since_joined, reviews_per_genre,
+                    get_genre_chart_data)
 from .forms import EditProfileForm
 
 
@@ -28,27 +29,27 @@ def profiles(request):
 
 def user_profile(request, profile_id):
     """ Return a single user profile """
+
+    # Data for the profile info
     profile = get_object_or_404(Profile, pk=profile_id)
     recently_viewed = request.session.get('viewed_albums', [])
     days_joined = days_since_joined(profile.created_on)
     time_since_joined = naturaltime(profile.created_on)
     no_of_reviews = number_of_reviews(profile.user)
     profile_form = EditProfileForm(instance=profile)
+
+    # Data for the followers section 
     follows = list(profile.user.followed.all())
     followers = profile.followers.all()
+
+    # Get the reviews
     followers_reviews = (Review.objects.filter(
                          creator__in=profile.followers.all()))
     user_reviews = Review.objects.filter(creator=profile.user)
-    print(reviews_per_genre(profile.user))
 
     # Getting data for the chart
     user_reviews_by_genre = reviews_per_genre(profile.user)
-    genres = [x.name for x in Genre.objects.all()]
-    print(genres)
-    genres_reviewed = [0 for _ in range(len(Genre.objects.all()))]
-    for genre_reviews in user_reviews_by_genre:
-        list_index = genre_reviews['album__genre'] - 1
-        genres_reviewed[list_index] = genre_reviews['review_count']
+    genres, genres_reviewed = get_genre_chart_data(user_reviews_by_genre)
 
     # Create the chart
     figure = graphs.Figure()
