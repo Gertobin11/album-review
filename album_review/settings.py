@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'reviews',
     'profiles',
+    'user_statistics',
     'crispy_forms'
 ]
 
