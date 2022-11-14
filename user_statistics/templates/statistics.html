@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'css/user-statistics.css' %}">
+{% endblock %}
+{% block content %}
+
+<main class="statistics-layout">
+    <div class="banner">
+        <h1>ALBUM DISCUSSION STATISTICS</h1>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart1">
+            {% autoescape off %}
+                {{ plot_html }}
+            {% endautoescape %}
+        </div>
+        <div class="chart2">
+            {% autoescape off %}
+            {{ ratings_per_album }}
+        {% endautoescape %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}

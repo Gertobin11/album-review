@@ -1,0 +1,21 @@
+.statistics-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.banner {
+    margin-top: 3rem;
+    background-color: gold;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px 5px #585858;
+    padding: .8rem;
+    min-height: 3rem;;
+}
