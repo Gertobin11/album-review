@@ -53,7 +53,9 @@ def user_profile(request, profile_id):
 
     # Create the chart
     figure = graphs.Figure()
-    scatter = graphs.Scatter(x=genres, y=genres_reviewed, name='Reviews Per Genre')
+    scatter = graphs.Scatter(x=genres, y=genres_reviewed,
+                             name='Reviews Per Genre',
+                             marker=dict(size=20, color='red'))
     figure.add_trace(scatter)
     figure.update_layout(xaxis_title="Genre", yaxis_title="No. of Reviews")
     plot_html = plot(figure, output_type='div')
@@ -64,7 +66,9 @@ def user_profile(request, profile_id):
 
     # Create the ratings chart
     figure1 = graphs.Figure()
-    bar = graphs.ColorBar(x=albums_reviewed, y=album_ratings, name='Album Ratings')
+    bar = graphs.Scatter(x=albums_reviewed, y=album_ratings,
+                         mode="markers", name='Album Ratings',
+                         marker=dict(size=20, color="gold"),)
     figure1.add_trace(bar)
     figure1.update_layout(xaxis_title="Album", yaxis_title="Ratings")
     plot1_html = plot(figure1, output_type='div')
