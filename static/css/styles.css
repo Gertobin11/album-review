@@ -409,6 +409,8 @@ input {
 #check-reviews {
     grid-column-start: 1;
     grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
     box-shadow: 5px 5px 15px 5px #585858;
     background-color: black;
     position: relative;    
@@ -417,6 +419,8 @@ input {
 #check-albums {
     grid-column-start: 3;
     grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
     box-shadow: 5px 5px 15px 5px #585858;
     background-color: black;
     position: relative;    
@@ -444,6 +448,7 @@ input {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
+    grid-row-end: 4;
     box-shadow: 5px 5px 15px 5px #585858;
     background-color: black;
     position: relative;
@@ -457,6 +462,7 @@ input {
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 3;
+    grid-row-end: 4;
     box-shadow: 5px 5px 15px 5px #585858;
     background-color: black;
     position: relative;  
@@ -464,6 +470,22 @@ input {
 
 .profiles-card-img {
     background-image: url("/media/album_covers/LikeAVirgin1984.png");
+}
+
+#check-statistics {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    box-shadow: 5px 5px 15px 5px #585858;
+    background-color: black;
+    position: relative;  
+}
+
+.statistics-card-img {
+    background-image: url("/media/album_covers/audioslavealbum.jpg");
+    background-size: contain;
+    background-repeat: repeat-x;
 }
 
 .content-btn {
@@ -1016,7 +1038,6 @@ footer {
 
     #main-content {
         grid-column-start: 1;
-        grid-template-rows: 1fr 1fr 1fr;
     }
 }
 
