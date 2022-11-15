@@ -19,3 +19,20 @@
     padding: .8rem;
     min-height: 3rem;;
 }
+
+.chart-container {
+    width: 90%;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-evenly;
+}
+
+.chart-container h2 {
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.chart {
+    width: 45%;
+}
