@@ -25,14 +25,28 @@
     display: flex;
     gap: 1.5rem;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .chart-container h2 {
     width: 100%;
     text-align: center;
     color: whitesmoke;
+    background-color: black;
 }
 
 .chart {
     width: 45%;
+}
+
+@media screen and (max-width: 1300px) {
+    .chart {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .chart-container {
+        width: 100%;
+    }
 }
