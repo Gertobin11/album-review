@@ -6,7 +6,7 @@ import datetime
 
 YEAR_CHOICES = []
 
-for i in range(1900, (datetime.datetime.now().year + 1)):
+for i in range(1900, (int(datetime.datetime.now().year) + 1)):
     YEAR_CHOICES.append((i, i))
 
 
