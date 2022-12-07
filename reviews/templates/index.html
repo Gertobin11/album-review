@@ -84,7 +84,13 @@
                     <p>{{ profile.profile.user }}</p>
                     <p>Reviews: {{ profile.no_of_reviews }}</p>
                     <a href="{% url 'user_profile' profile.profile.id %}">View</a>
-                    <a href="{% url 'follow' profile.profile.id %}">Follow</a>
+                    {% if request.user.is_authenticated and request.user != profile.profile.user %}
+                        {% if request.user in profile.profile.followers.all %}
+                            <a href="{% url 'follow' profile.profile.id %}">Unfollow</a>
+                        {% else %}
+                            <a href="{% url 'follow' profile.profile.id %}">Follow</a>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
