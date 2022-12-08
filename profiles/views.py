@@ -73,6 +73,16 @@ def user_profile(request, profile_id):
     figure1.update_layout(xaxis_title="Album", yaxis_title="Ratings")
     plot1_html = plot(figure1, output_type='div')
 
+    if request.method == 'POST':
+        profile_form = EditProfileForm(request.POST, request.FILES,
+                                       instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, "You have successfully"
+                             " updated your profile")
+        else:
+            messages.error(request, "Something went wrong, please try gain ")
+
     context = {
         'profile': profile,
         'no_of_reviews': no_of_reviews,
