@@ -28,8 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
 
 LOGIN_REDIRECT_URL = '/'
 
