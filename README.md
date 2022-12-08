@@ -68,4 +68,4 @@ Then for the main text and paragraphs 'Arapey' is used.
 
 ### Layout
 
-THe Layout for this site relies on Flex for the dynmaic layouts. Alot of this was learned from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw). In more static and structured places like index.html grid was used. Again I learned most of this from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw) and also [WEB Dev Simplified]()
+THe Layout for this site relies on Flex for the dynmaic layouts.A lot of this was learned from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw). In more static and structured places like index.html grid was used. Again I learned most of this from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw) and also [WEB Dev Simplified](https://www.youtube.com/c/webdevsimplifieds)

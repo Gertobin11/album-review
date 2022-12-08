@@ -97,7 +97,7 @@
           <!-- Top profiles for mobile view-->
         <a id="mobile-top-profiles" title="{{ profile.profile }}" class="profile-img hide" href="#">
             {% if profile.profile.profile_pic %}
-            <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+            <img src="{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
             {% else %}
             <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
             {% endif %}
