@@ -51,3 +51,21 @@ Initially it would just be set up as a review site, where there is scope to link
 
 - As a user I want t see the sites statistics, to see the users tastes in music
 - As a site owner I want to see the sites statistics so I can gear future features to match the users
+
+
+## UX
+
+### Colour Scheme 
+
+The site colour scheme is based around having dark backgrounds, with a dark overlay on some background pictures. 
+This is then contrasted with bright CTA buttons links and content boxes. 
+The contrasting colours are the default gold and a bright red (#ee4b2b)
+
+### Typography
+
+The fonts chosen for this site are 'Eczar' for headings and titles.
+Then for the main text and paragraphs 'Arapey' is used. 
+
+### Layout
+
+THe Layout for this site relies on Flex for the dynmaic layouts. Alot of this was learned from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw). In more static and structured places like index.html grid was used. Again I learned most of this from [Kevin Powell](https://www.youtube.com/channel/UCJZv4d5rbIKd4QHMPkcABCw) and also [WEB Dev Simplified]()
