@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="card-img">
                     {% if profile.profile.profile_pic %}
-                        <img src="{{ profile.profile.profile_pic }}" alt="profile image">
+                        <img src="{{ profile.profile.profile_pic.url }}" alt="profile image">
                     {% else %}
                         <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
                     {% endif %}
