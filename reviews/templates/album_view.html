@@ -7,7 +7,7 @@
     <br>
     <div class="album-wrapper">
         <div class="album-image">
-            <img src="{{MEDIA_URL }}{{ album.album_cover }}" alt="Album cover of {{ album }}">
+            <img src="{{ album.album_cover.url }}" alt="Album cover of {{ album }}">
         </div>
         <div class="album-body">
             <p class="title">{{ album|title }}</p>

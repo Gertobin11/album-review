@@ -11,9 +11,9 @@
     <div class="user-info">
         <div class="image-wrapper">
             {% if profile.profile_pic%}
-                <img src="{{ MEDIA_URL }}{{ profile.profile_pic }}" alt="Profile banner image">
+                <img src="{{ profile.profile_pic.url }}" alt="Profile banner image">
             {% else %}
-                <img src="{{ MEDIA_URL }}user-alt.png" alt="Profile banner image">
+                <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="Profile banner image">
             {% endif %}
         </div>
         <section class="user-profile-card">

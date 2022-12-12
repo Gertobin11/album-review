@@ -74,9 +74,9 @@
             <div class="card-inner">
                 <div class="profile-img card-front">
                     {% if profile.profile.profile_pic %}
-                    <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+                    <img src="{{ profile.profile.profile_pic.url }}" alt="Reviewers Profile Pic">
                     {% else %}
-                    <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+                    <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="profile image">
                     {% endif %}
                     <p>{{ profile.profile }}</p>
                 </div>
@@ -97,9 +97,9 @@
           <!-- Top profiles for mobile view-->
         <a id="mobile-top-profiles" title="{{ profile.profile }}" class="profile-img hide" href="#">
             {% if profile.profile.profile_pic %}
-            <img src="{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+            <img src="{{ profile.profile.profile_pic.url }}" alt="Reviewers Profile Pic">
             {% else %}
-            <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+            <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="profile image">
             {% endif %}
         </a>
         <br>
@@ -110,9 +110,9 @@
     <!-- Top profiles for mobile view-->
     <a title="{{ profile.profile }}" class="profile-img hide" href="#">
         {% if profile.profile.profile_pic %}
-        <img src="{{ MEDIA_URL }}{{ profile.profile.profile_pic }}" alt="Reviewers Profile Pic">
+        <img src="{{ profile.profile.profile_pic.url }}" alt="Reviewers Profile Pic">
         {% else %}
-        <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+        <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="profile image">
         {% endif %}
     </a>
 </main>
