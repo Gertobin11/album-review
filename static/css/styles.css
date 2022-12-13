@@ -427,7 +427,7 @@ input {
 }
 
 .albums-card-img {
-    background-image: url("/media/album_covers/Wu-TangClanEntertheWu-Tangalbumcover.jpg");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1670939007/Wu-TangClanEntertheWu-Tangalbumcover_zzbjqx.jpg");
 }
 
 .card-fade {
@@ -441,7 +441,7 @@ input {
 }
 
 .reviews-card-img {
-    background-image: url("/media/album_covers/Alleyezonme.jpg");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1670939007/Alleyezonme_xtdgu1.jpg");
 }
 
 #add-review-card {
@@ -455,7 +455,7 @@ input {
 }
 
 .add-review-card-img {
-    background-image: url("/media/album_covers/NirvanaNevermindalbumcover.jpg");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1670938945/NirvanaNevermindalbumcover_j1t8vr.jpg");
 }
 
 #check-profiles {
@@ -469,7 +469,7 @@ input {
 }
 
 .profiles-card-img {
-    background-image: url("/media/album_covers/LikeAVirgin1984.png");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1670938945/LikeAVirgin1984_zrkxbc.png");
 }
 
 #check-statistics {
@@ -483,7 +483,7 @@ input {
 }
 
 .statistics-card-img {
-    background-image: url("/media/album_covers/audioslavealbum.jpg");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1670939244/audioslavealbum_ezk6pw.jpg");
     background-size: contain;
     background-repeat: repeat-x;
 }
