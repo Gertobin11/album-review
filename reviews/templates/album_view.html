@@ -27,10 +27,10 @@
         <div class="card">
             <div class="card-body top-margin">
                 <div class="profile-img">
-                    {% if review.creator.profile_set.first.profile_pic %}
-                    <img src="{{ MEDIA_URL }}{{ review.creator.profile_set.first.profile_pic }}" alt="Reviewers Profile Pic">
+                    {% if review.creator.profile.first.profile_pic %}
+                    <img src="{{ review.creator.profile.first.profile_pic.url }}" alt="Reviewers Profile Pic">
                     {% else %}
-                    <img src="{{ MEDIA_URL }}user-alt.png" alt="profile image">
+                    <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="profile image">
                     {% endif %}
                 </div>
                 <div class="card-text top-margin">

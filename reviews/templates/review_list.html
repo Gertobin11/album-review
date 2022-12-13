@@ -11,8 +11,8 @@
             </div>
             <div class="card-body">
                 <div class="profile-img">
-                    {% if review.creator.profile_set.first.profile_pic %}
-                    <img src="{{ review.creator.profile_set.first.profile_pic.url }}" alt="Reviewers Profile Pic">
+                    {% if review.creator.profile.first.profile_pic %}
+                    <img src="{{ review.creator.profile.first.profile_pic.url }}" alt="Reviewers Profile Pic">
                     {% else %}
                     <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="profile image">
                     {% endif %}
