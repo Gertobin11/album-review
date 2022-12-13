@@ -13,7 +13,7 @@
         <div class="card-body flip-card latest-reviews-card">
             <div class="card-inner">
                 <div class="top-profile-img card-front">
-                    <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="Reviewers Profile Pic">
+                    <img src="{{ review.album.album_cover.url }}" alt="Reviewers Profile Pic">
                     <div class="card-text">
                         <p>{{ review.album.artist }}</p>
                         <p>{{ review.album }}</p>
@@ -22,7 +22,7 @@
                 <div class="card-text no-padding card-back">
                     <p>Review by: {{ review.creator }}</p>
                     <p> Rated: {{ review.rating }}</p>
-                    <a href="#">Read Review</a>
+                    <a href="{% url 'review' review.id %}">Read Review</a>
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@
     </section>
 
     <!-- Top profiles for mobile view-->
-    <a title="{{ profile.profile }}" class="profile-img hide" href="#">
+    <a title="{{ profile.profile }}" class="profile-img hide" href="">
         {% if profile.profile.profile_pic %}
         <img src="{{ profile.profile.profile_pic.url }}" alt="Reviewers Profile Pic">
         {% else %}
