@@ -79,9 +79,9 @@
                     <a class="review-link" href="{% url 'review' review.id %}">
                         <div class="content-card">
                             {% if review.album.album_cover %}
-                                <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
+                                <img src="{{ review.album.album_cover.url }}" alt="{{ review.album }} Album Cover Picture">
                             {% else %}
-                                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                                <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="Default profie image">
                             {% endif %}
                             <div class="content-card-body">
                                 <p>{{ review.title }}</p>
@@ -101,9 +101,9 @@
                     <a class="review-link" href="{% url 'review' review.id %}">
                         <div class="content-card">
                             {% if review.album.album_cover %}
-                                <img src="{{ MEDIA_URL }}{{ review.album.album_cover }}" alt="{{ review.album }} Album Cover Picture">
+                                <img src="{{ review.album.album_cover.url }}" alt="{{ review.album }} Album Cover Picture">
                             {% else %}
-                                <img src="{{ MEDIA_URL }}user-alt.png" alt="Default album image">
+                                <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="Default album image">
                             {% endif %}
                             <div class="content-card-body">
                                 <p>{{ review.title }}</p>
@@ -156,9 +156,9 @@
                 <div class="profile-card follows-card">
                     <div class="card-img">
                         {% if person.profile_pic %}
-                        <img src="{{ MEDIA_URL }}{{ person.profile_pic }}" alt="Followers Profile Pic">
+                        <img src="{{ person.profile_pic.url }}" alt="Followers Profile Pic">
                         {% else %}
-                        <img src="{{ MEDIA_URL }}user-alt.png" alt="Default profie image">
+                        <img src="https://res.cloudinary.com/dyg53cwvw/image/upload/v1650445285/zfb6bvgg7fxkufup10zz.jpg" alt="Default profie image">
                         {% endif %}
                         <p>{{ person }}</p>
                     </div>
