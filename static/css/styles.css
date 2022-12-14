@@ -9,6 +9,8 @@
 body {
     background-image: url('https://res.cloudinary.com/dyg53cwvw/image/upload/v1670840417/pexels-breakingpic-3104_naw3e3.jpg');
     background-size: cover;
+    position: relative;
+    padding-bottom: 10rem;
 }
 
 main {
@@ -940,6 +942,7 @@ footer {
     margin-top: 1.5rem;
     padding: .8rem;
     position: absolute;
+    bottom: 0;
 }
 
 .social-links {
