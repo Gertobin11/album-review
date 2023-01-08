@@ -42,7 +42,7 @@ def album_list(request):
     attach_album_attributes(albums, album_list)
     context = {
         'album_list': album_list
-        }
+    }
     template = 'album_list.html'
     return render(request, template, context)
 
@@ -91,12 +91,12 @@ def search(request):
         search_results = Album.objects.filter(title__icontains=search)
         if form.cleaned_data['search_in']:
             search_category = form.cleaned_data['search_in']
-            print(search_category)
             if search_category == 'group':
                 search_results = (Album.objects.filter(
                                   artist__name__icontains=search))
+            elif search_category == 'album':
                 search_results = Album.objects.filter(title__icontains=search)
-            elif search_category == 'reviewer':
+            else:
                 search_results = (Album.objects.filter(
                                   review__creator__username__icontains=search))
         search_count = len(search_results)
